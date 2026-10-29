@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAO × FA Model | UN Day Volunteering Tracks</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo, Changa & Space Grotesk for Arabic/English Brutalist Maximalism -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Changa:wght@600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tone.js for Interactive Soundtracks & Brutalist SFX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        changa: ['Changa', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace']
+                    },
+                    colors: {
+                        faoBlue: '#0077B6',
+                        unCyan: '#38BDF8',
+                        schoolAcid: '#A3E635',
+                        schoolGreen: '#15803D',
+                        schoolMint: '#DCFCE7',
+                        foodOrange: '#FF5722',
+                        foodGold: '#FACC15',
+                        foodCream: '#FFF7ED',
+                        brutalBlack: '#111111',
+                        brutalPaper: '#FFFDF7'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Maximalism + Neo-Brutalism Custom Styles */
+        :root {
+            --bg-main: #FFFDF7;
+            --accent-primary: #A3E635;
+            --accent-secondary: #FF5722;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            color: #111111;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(#111111 1.35px, transparent 1.35px), 
+                radial-gradient(#111111 1.35px, var(--bg-main) 1.35px);
+            background-size: 36px 36px;
+            background-position: 0 0, 18px 18px;
+            transition: background-color 0.4s ease;
+        }
+
+        /* Brutalist Hard Shadows & Borders */
+        .brutal-border {
+            border: 4px solid #111111;
+        }
+        .brutal-border-sm {
+            border: 3px solid #111111;
+        }
+        .brutal-shadow {
+            box-shadow: 8px 8px 0px 0px #111111;
+        }
+        .brutal-shadow-lg {
+            box-shadow: 12px 12px 0px 0px #111111;
+        }
+        .brutal-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #111111;
+        }
+        .brutal-shadow-green {
+            box-shadow: 10px 10px 0px 0px #15803D;
+        }
+        .brutal-shadow-orange {
+            box-shadow: 10px 10px 0px 0px #C2410C;
+        }
+
+        /* Interactive Brutalist Button Press */
+        .brutal-btn {
+            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+        }
+        .brutal-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 10px 10px 0px 0px #111111;
+        }
+        .brutal-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px 0px #111111;
+        }
+
+        /* Maximalist Marquee Animation */
+        @keyframes marquee-rtl {
+            0% { transform: translate3d(0%, 0, 0); }
+            100% { transform: translate3d(50%, 0, 0); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee-rtl 24s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Floating Maximalist Stickers */
+        @keyframes float-rotate {
+            0%, 100% { transform: translateY(0px) rotate(-4deg); }
+            50% { transform: translateY(-8px) rotate(4deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+        }
+        .sticker-float {
+            animation: float-rotate 4s ease-in-out infinite;
+        }
+        .sticker-float-alt {
+            animation: float-reverse 4.5s ease-in-out infinite;
+        }
+
+        /* Striped Pattern Backgrounds */
+        .bg-diagonal-green {
+            background: repeating-linear-gradient(
+                -45deg,
+                #A3E635,
+                #A3E635 14px,
+                #BEF264 14px,
+                #BEF264 28px
+            );
+        }
+        .bg-diagonal-orange {
+            background: repeating-linear-gradient(
+                -45deg,
+                #FB923C,
+                #FB923C 14px,
+                #FDBA74 14px,
+                #FDBA74 28px
+            );
+        }
+        .bg-checker-fao {
+            background-color: #0284C7;
+            background-image: linear-gradient(45deg, #0369A1 25%, transparent 25%), 
+                              linear-gradient(-45deg, #0369A1 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #0369A1 75%), 
+                              linear-gradient(-45deg, transparent 75%, #0369A1 75%);
+            background-size: 24px 24px;
+            background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+        }
+
+        /* ========================================================= */
+        /* HYPER-KINETIC TABS & PANEL ANIMATIONS                     */
+        /* ========================================================= */
+        @keyframes tabKineticFlip {
+            0% {
+                opacity: 0;
+                transform: perspective(600px) rotateX(-18deg) translateY(22px) scale(0.92);
+            }
+            55% {
+                opacity: 1;
+                transform: perspective(600px) rotateX(4deg) translateY(-5px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(600px) rotateX(0deg) translateY(0) scale(1);
+            }
+        }
+        .animate-tab-panel {
+            animation: tabKineticFlip 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            transform-origin: top center;
+        }
+
+        /* Staggered inner elements pop-in inside tabs */
+        @keyframes staggerPop {
+            0% {
+                opacity: 0;
+                transform: translateX(18px) scale(0.94);
+            }
+            70% {
+                opacity: 1;
+                transform: translateX(-3px) scale(1.01);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        .animate-tab-panel .stagger-1 {
+            animation: staggerPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
+        }
+        .animate-tab-panel .stagger-2 {
+            animation: staggerPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.13s both;
+        }
+        .animate-tab-panel .stagger-3 {
+            animation: staggerPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.21s both;
+        }
+
+        /* Kinetic Tab Button Effects */
+        @keyframes iconWiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-14deg) scale(1.2); }
+            75% { transform: rotate(14deg) scale(1.2); }
+        }
+
+        .brutal-tab-btn {
+            position: relative;
+            overflow: visible;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .brutal-tab-btn:hover {
+            transform: translateY(-4px) rotate(-1.5deg) scale(1.03);
+            box-shadow: 4px 4px 0px 0px #111111;
+        }
+        .brutal-tab-btn:hover i {
+            animation: iconWiggle 0.45s ease-in-out infinite;
+        }
+        .brutal-tab-btn.active-tab {
+            transform: translate(-3px, -5px) rotate(-1deg) scale(1.04);
+            box-shadow: 6px 6px 0px 0px #111111;
+            z-index: 10;
+        }
+        .brutal-tab-btn.active-tab i {
+            animation: iconWiggle 0.8s ease-in-out infinite;
+        }
+
+        /* Floating LIVE sticker badge on active tab */
+        .tab-live-dot {
+            display: none;
+        }
+        .brutal-tab-btn.active-tab .tab-live-dot {
+            display: flex;
+            animation: badgeBounce 0.9s ease-in-out infinite;
+        }
+        @keyframes badgeBounce {
+            0%, 100% { transform: translateY(0) rotate(8deg) scale(1); }
+            50% { transform: translateY(-4px) rotate(-6deg) scale(1.12); }
+        }
+
+        @keyframes brutalJolt {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-4px, -3px) rotate(-1.5deg); }
+            50% { transform: translate(4px, 2px) rotate(1.5deg); }
+            75% { transform: translate(-2px, 3px) rotate(-0.5deg); }
+        }
+        .animate-jolt {
+            animation: brutalJolt 0.35s ease-in-out;
+        }
+
+        /* Stamp Slam Animation for Creative Modal Badge */
+        @keyframes stampSlam {
+            0% {
+                opacity: 0;
+                transform: scale(2.8) rotate(-25deg);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(0.9) rotate(-8deg);
+            }
+            80% {
+                transform: scale(1.06) rotate(-12deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+        .stamp-slammed {
+            animation: stampSlam 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Equalizer Bars for Soundtrack Boombox */
+        @keyframes eqBounce {
+            0%, 100% { height: 5px; }
+            50% { height: 20px; }
+        }
+        .eq-bar {
+            width: 4px;
+            height: 5px;
+            background-color: #A3E635;
+            border-radius: 2px;
+            transition: height 0.2s ease;
+        }
+        .playing .eq-bar:nth-child(1) { animation: eqBounce 0.45s ease-in-out infinite 0.0s; }
+        .playing .eq-bar:nth-child(2) { animation: eqBounce 0.35s ease-in-out infinite 0.15s; background-color: #FACC15; }
+        .playing .eq-bar:nth-child(3) { animation: eqBounce 0.55s ease-in-out infinite 0.25s; background-color: #FF5722; }
+        .playing .eq-bar:nth-child(4) { animation: eqBounce 0.40s ease-in-out infinite 0.1s; background-color: #38BDF8; }
+
+        /* Floating Emoji Burst Particles */
+        @keyframes particleFly {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(0.5) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+            }
+        }
+        .emoji-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 1.6rem;
+            animation: particleFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Poll Progress Bar Fill */
+        .poll-bar-fill {
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDE047;
+            border-left: 4px solid #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF5722;
+            border: 3px solid #111111;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-yellow-300 selection:text-black">
+
+    <!-- TOP MAXIMALIST MARQUEE TICKER (FAO ALWAYS FIRST + NEW DATES & DETAILS) -->
+    <div class="w-full bg-black text-white border-b-4 border-black py-2.5 overflow-hidden sticky top-0 z-40">
+        <div class="animate-marquee flex items-center gap-8 text-sm md:text-base font-changa font-bold tracking-wide">
+            <span class="bg-faoBlue text-white px-2.5 py-0.5 rounded-lg border-2 border-white font-mono">FAO × FA MODEL</span>
+            <span class="flex items-center gap-2 text-schoolAcid"><i class="fa-solid fa-seedling"></i> UN DAY VOLUNTEERING</span>
+            <span class="text-yellow-300">⚡ الجزء الأول من إيفينت UN DAY (غير الـ Ceremony) ⚡</span>
+            <span class="text-orange-400"><i class="fa-solid fa-store"></i> 5 ديسمبر: تجهيز وتوزيع للمستحقين أمام مقر بنك الطعام بنظام Free Mart</span>
+            <span class="text-lime-400"><i class="fa-solid fa-school"></i> 7 ديسمبر: حملة توعية لمدرستين مع حماة الأرض</span>
+            <span class="bg-emerald-500 text-black font-black px-2.5 py-0.5 rounded-lg border-2 border-white">⏱️ أيام منفصلة! مدة كل جزء من 3 لـ 4 ساعات بالكتير</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="bg-faoBlue text-white px-2.5 py-0.5 rounded-lg border-2 border-white font-mono">FAO × FA MODEL</span>
+            <span class="flex items-center gap-2 text-schoolAcid"><i class="fa-solid fa-seedling"></i> UN DAY VOLUNTEERING</span>
+            <span class="text-yellow-300">⚡ الجزء الأول من إيفينت UN DAY (غير الـ Ceremony) ⚡</span>
+            <span class="text-orange-400"><i class="fa-solid fa-store"></i> 5 ديسمبر: تجهيز وتوزيع للمستحقين أمام مقر بنك الطعام بنظام Free Mart</span>
+            <span class="text-lime-400"><i class="fa-solid fa-school"></i> 7 ديسمبر: حملة توعية لمدرستين مع حماة الأرض</span>
+            <span class="bg-emerald-500 text-black font-black px-2.5 py-0.5 rounded-lg border-2 border-white">⏱️ أيام منفصلة! مدة كل جزء من 3 لـ 4 ساعات بالكتير</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION & IDENTITY BAR (FAO FIRST, THEN FA MODEL) -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-4">
+        <div class="bg-white brutal-border brutal-shadow rounded-2xl p-4 md:p-5 flex flex-wrap items-center justify-between gap-4">
+            <!-- Brand Logos / Badges: FAO FIRST BEFORE FA MODEL -->
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="bg-faoBlue text-white brutal-border-sm brutal-shadow-sm rounded-xl px-4 py-2 flex items-center gap-2.5">
+                    <i class="fa-solid fa-earth-africa text-xl text-yellow-300"></i>
+                    <div>
+                        <div class="font-mono font-bold text-[10px] leading-none text-sky-200">UN DAY EVENT</div>
+                        <div class="font-mono font-black text-lg sm:text-xl leading-tight">FAO</div>
+                    </div>
+                </div>
+
+                <span class="font-mono font-black text-2xl">×</span>
+
+                <div class="bg-schoolAcid brutal-border-sm brutal-shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2">
+                    <i class="fa-solid fa-wheat-awn text-xl text-black"></i>
+                    <div>
+                        <div class="font-changa font-black text-lg sm:text-xl leading-none">FA MODEL</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Mood Switcher & Boombox -->
+            <div class="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <!-- Mood Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 bg-zinc-100 brutal-border-sm rounded-xl p-1.5">
+                    <span class="text-xs font-extrabold px-2">مود الألوان:</span>
+                    <button onclick="setVisualMood('split', event)" id="mood-split" class="mood-btn brutal-tab-btn active-tab bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg border-2 border-black">
+                        🔥 الدمج الكامل
+                    </button>
+                    <button onclick="setVisualMood('schools', event)" id="mood-schools" class="mood-btn brutal-tab-btn bg-schoolAcid text-black text-xs font-bold px-3 py-1.5 rounded-lg border-2 border-black">
+                        🌱 مود المدارس
+                    </button>
+                    <button onclick="setVisualMood('food', event)" id="mood-food" class="mood-btn brutal-tab-btn bg-orange-400 text-black text-xs font-bold px-3 py-1.5 rounded-lg border-2 border-black">
+                        🍱 مود الإطعام
+                    </button>
+                </div>
+
+                <!-- Brutalist Soundtrack & SFX Boombox -->
+                <div class="bg-black text-white brutal-border-sm brutal-shadow-sm rounded-xl p-1.5 px-3 flex flex-wrap items-center justify-center gap-2">
+                    <div id="eq-visualizer" class="flex items-end gap-1 h-5 px-1">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <button onclick="toggleSoundtrack(event)" id="music-toggle-btn" class="bg-yellow-300 hover:bg-lime-300 text-black font-changa font-black text-xs px-3 py-1.5 rounded-lg border-2 border-black transition flex items-center gap-1.5">
+                        <i id="music-icon" class="fa-solid fa-play"></i>
+                        <span id="music-label">تشغيل الساوند تراك</span>
+                    </button>
+                    <select onchange="changeBeatStyle(this.value)" id="beat-selector" class="bg-zinc-900 text-yellow-300 font-changa font-bold text-xs px-2 py-1.5 rounded-lg border-2 border-zinc-600 focus:outline-none cursor-pointer">
+                        <option value="funk">🎵 بيت الحماس (FAO × FA Groove)</option>
+                        <option value="schools">🌱 ساوند المدارس (Eco Beat)</option>
+                        <option value="food">🍱 ساوند الإطعام (Action Groove)</option>
+                    </select>
+                    <button onclick="toggleSFX()" id="sfx-toggle-btn" title="تفعيل/كتم أصوات الأزرار" class="bg-zinc-800 hover:bg-zinc-700 text-schoolAcid text-xs font-mono font-bold px-2.5 py-1.5 rounded-lg border border-zinc-600 transition">
+                        SFX: ON 🔊
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: MAXIMALIST BRUTALIST COLLAGE (FAO FIRST) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+        <div class="relative bg-checker-fao brutal-border brutal-shadow-lg rounded-3xl p-5 sm:p-10 lg:p-12 overflow-hidden text-white">
+            
+            <!-- Decorative Floating Stickers -->
+            <div class="hidden lg:flex sticker-float absolute top-6 left-8 bg-yellow-300 text-black brutal-border-sm brutal-shadow-sm rounded-2xl px-4 py-2 font-changa font-black text-sm items-center gap-2 z-10">
+                <span>🎯 الـ Goal: مدرستين (7 ديسمبر) + Free Mart بنك الطعام (5 ديسمبر)!</span>
+            </div>
+            <div class="hidden lg:flex sticker-float-alt absolute bottom-6 left-10 bg-pink-400 text-black brutal-border-sm brutal-shadow-sm rounded-2xl px-4 py-2 font-changa font-black text-sm items-center gap-2 z-10">
+                <span>⏱️ كل جزء من 3 لـ 4 ساعات بالكتير وفي أيام منفصلة!</span>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Right Column: Headline & Context -->
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+                    <div class="inline-flex flex-wrap items-center gap-2 bg-yellow-300 text-black brutal-border-sm brutal-shadow-sm rounded-xl px-3.5 py-1.5 font-extrabold text-xs sm:text-sm">
+                        <span class="w-3 h-3 rounded-full bg-red-600 animate-ping"></span>
+                        <span>الجزء الأول من إيفينت UN Day (خارج الـ Ceremony)</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h1 class="font-changa font-black text-3xl sm:text-5xl lg:text-6xl leading-snug">
+                            اختار مسارك التطوعي مع
+                        </h1>
+                        <!-- FAO FIRST THEN FA MODEL -->
+                        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+                            <span class="inline-block bg-yellow-300 text-black font-changa font-black text-2xl sm:text-4xl lg:text-5xl px-5 py-1.5 rounded-2xl brutal-border transform -rotate-1">FAO</span>
+                            <span class="inline-block bg-schoolAcid text-black font-changa font-black text-2xl sm:text-4xl lg:text-5xl px-4 py-1.5 rounded-2xl brutal-border transform rotate-1">&amp; FA MODEL</span>
+                        </div>
+                    </div>
+
+                    <p class="text-base sm:text-xl font-bold bg-black/85 text-white p-4 sm:p-5 rounded-2xl brutal-border-sm leading-relaxed">
+                        قبل ما تسجل في <span class="text-yellow-300 underline decoration-wavy">Google Form</span>، اعرف تفاصيل الجزئين الميدانيين لإيفينت <span class="text-sky-300 font-mono">UN Day</span> بتنظيم <span class="text-schoolAcid font-mono">FAO × FA Model</span>! الفعاليتين هيكونوا في <span class="bg-emerald-400 text-black font-black px-2 py-0.5 rounded-md inline-block my-0.5">أيام منفصلة (5 ديسمبر و 7 ديسمبر)</span> وكل جزء مدته خفيفة ما بين <span class="text-yellow-300 font-black">3 لـ 4 ساعات بالكتير!</span>
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-1">
+                        <a href="#tracks-section" class="brutal-btn bg-schoolAcid text-black font-changa font-black text-lg sm:text-xl px-6 py-4 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-3 text-center">
+                            <span>استكشف الجزئين بالتفصيل</span>
+                            <i class="fa-solid fa-arrow-down animate-bounce"></i>
+                        </a>
+                        <button onclick="openQuizModal()" class="brutal-btn bg-white text-black font-changa font-extrabold text-base sm:text-lg px-6 py-4 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-2 text-center">
+                            <i class="fa-solid fa-wand-magic-sparkles text-purple-600"></i>
+                            <span>محتار؟ اعمل اختبار الـ 5 أسئلة!</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Left Column: Brutalist Dual Visual Poster Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-black brutal-border brutal-shadow-lg rounded-3xl p-5 space-y-4 transform lg:rotate-1">
+                        <div class="flex items-center justify-between border-b-4 border-black pb-3">
+                            <span class="font-mono font-black text-sm bg-black text-white px-3 py-1 rounded-lg">FAO × FA MODEL BRIEF</span>
+                            <span class="font-bold text-xs bg-emerald-200 text-emerald-950 border-2 border-black px-2.5 py-1 rounded-lg">أيام منفصلة 📅 (3-4 ساعات)</span>
+                        </div>
+
+                        <!-- Mini Preview Part 1 -->
+                        <div onclick="scrollToTrack('track-schools')" class="cursor-pointer bg-schoolAcid hover:bg-lime-300 transition brutal-border-sm brutal-shadow-sm rounded-2xl p-4 flex items-center gap-4">
+                            <div class="w-14 h-14 bg-white brutal-border-sm rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                🌱
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center justify-between gap-1">
+                                    <span class="text-xs font-black uppercase bg-black text-schoolAcid px-2 py-0.5 rounded">المسار الأول • حماة الأرض</span>
+                                    <span class="text-[11px] font-black bg-white border border-black px-2 py-0.5 rounded">📅 7 ديسمبر</span>
+                                </div>
+                                <h3 class="font-changa font-black text-lg leading-snug mt-1">حملات توعية للمدارس (مدرستين)</h3>
+                                <p class="text-xs font-bold text-zinc-900">توعية الأطفال بأهمية الزراعة (من 3 لـ 4 ساعات بالكتير)</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center font-mono font-black text-xs sm:text-sm py-0.5">
+                            <span class="bg-yellow-300 brutal-border-sm px-4 py-1 rounded-full">📅 يومين منفصلين (5 ديسمبر &amp; 7 ديسمبر)</span>
+                        </div>
+
+                        <!-- Mini Preview Part 2 -->
+                        <div onclick="scrollToTrack('track-food')" class="cursor-pointer bg-orange-400 hover:bg-orange-300 transition brutal-border-sm brutal-shadow-sm rounded-2xl p-4 flex items-center gap-4">
+                            <div class="w-14 h-14 bg-white brutal-border-sm rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                🍱
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center justify-between gap-1">
+                                    <span class="text-xs font-black uppercase bg-black text-orange-400 px-2 py-0.5 rounded">المسار الثاني • بنك الطعام</span>
+                                    <span class="text-[11px] font-black bg-white border border-black px-2 py-0.5 rounded">📅 5 ديسمبر</span>
+                                </div>
+                                <h3 class="font-changa font-black text-lg leading-snug mt-1">تجهيز وتوزيع بنظام Free Mart</h3>
+                                <p class="text-xs font-bold text-zinc-900">تجهيز وتحضير وتوزيع للمستحقين أمام مقر بنك الطعام</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-zinc-900 text-white rounded-xl p-3 text-center text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-id-badge text-yellow-300"></i>
+                            <span>اختار مسارك واستلم بطاقة المهمة الميدانية قبل الفورم!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDENTITY BANNER: WHY FAO × FA MODEL? (FAO FIRST) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-sky-300 brutal-border brutal-shadow rounded-2xl p-5 flex items-start gap-4">
+                <div class="w-12 h-12 bg-black text-sky-300 rounded-xl flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div>
+                    <h3 class="font-changa font-black text-lg">رؤية وهوية الـ FAO</h3>
+                    <p class="text-sm font-bold text-zinc-900 mt-1">تحقيق أهداف منظمة الأغذية والزراعة على الأرض: زراعة مستدامة (في مدرستين) + أمن غذائي بنظام Free Mart (مع بنك الطعام).</p>
+                </div>
+            </div>
+
+            <div class="bg-yellow-300 brutal-border brutal-shadow rounded-2xl p-5 flex items-start gap-4">
+                <div class="w-12 h-12 bg-black text-yellow-300 rounded-xl flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-users-rays"></i>
+                </div>
+                <div>
+                    <h3 class="font-changa font-black text-lg">تنظيم وطاقة FA Model</h3>
+                    <p class="text-sm font-bold text-zinc-900 mt-1">متطوعين FA Model جاهزين يصنعوا أثر حقيقي ومباشر في الميدان سواء بتوعية الجيل الجديد أو بتجهيز وتوزيع الغذاء للمستحقين.</p>
+                </div>
+            </div>
+
+            <div class="bg-pink-300 brutal-border brutal-shadow rounded-2xl p-5 flex items-start gap-4">
+                <div class="w-12 h-12 bg-black text-pink-300 rounded-xl flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <h3 class="font-changa font-black text-lg">مواعيد منفصلة ووقت قياسي</h3>
+                    <p class="text-sm font-bold text-zinc-900 mt-1">الجزئين في أيام منفصلة! يوم <strong>5 ديسمبر</strong> لبنك الطعام، ويوم <strong>7 ديسمبر</strong> للمدارس، وكل يوم ما بين <strong>3 لـ 4 ساعات بالكتير</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SECTION: THE TWO VOLUNTEERING TRACKS (MAXIMALIST SPLIT) -->
+    <main id="tracks-section" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <!-- Section Header -->
+        <div class="text-center mb-10 flex flex-col items-center">
+            <span class="bg-black text-yellow-300 font-mono font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full brutal-border-sm inline-block">
+                FAO × FA MODEL // FIELD MISSIONS
+            </span>
+            
+            <h2 class="font-changa font-black text-2xl sm:text-4xl lg:text-5xl mt-4 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3 leading-normal">
+                <span>شرح الجزئين بالتفصيل..</span>
+                <span class="bg-yellow-300 text-black px-4 py-1.5 rounded-2xl brutal-border-sm brutal-shadow-sm inline-block">
+                    هتتطوع في أنهي جزء؟
+                </span>
+            </h2>
+            
+            <p class="font-bold text-zinc-800 mt-4 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed px-2">
+                اضغط على التابات التفاعلية في كل مسار عشان تستكشف الخطوات، المواعيد، وتصويت الجروب!
+            </p>
+        </div>
+
+        <!-- DUAL TRACKS GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+
+            <!-- ========================================================= -->
+            <!-- TRACK 1: SCHOOL AWARENESS (GREEN / LIME / EARTH IDENTITY) -->
+            <!-- ========================================================= -->
+            <article id="track-schools" class="relative bg-schoolMint brutal-border brutal-shadow-green rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300">
+                
+                <!-- Top Striped Header -->
+                <div>
+                    <div class="bg-diagonal-green border-b-4 border-black p-5 sm:p-6 relative">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <span class="bg-black text-schoolAcid font-mono font-black text-xs sm:text-sm px-3.5 py-1.5 rounded-xl border-2 border-white">
+                                TRACK 01 // 7 DECEMBER
+                            </span>
+                            <span class="bg-white text-black font-extrabold text-xs sm:text-sm px-3 py-1 rounded-xl brutal-border-sm">
+                                🌱 بالتعاون مع: حماة الأرض / حماة وطن
+                            </span>
+                        </div>
+
+                        <h3 class="font-changa font-black text-3xl sm:text-4xl text-black leading-tight">
+                            حملات التوعية للمدارس 🏫🌿
+                        </h3>
+                        <p class="font-extrabold text-sm sm:text-base text-green-950 mt-2 bg-white/90 brutal-border-sm rounded-xl p-3">
+                            حملة توعوية ميدانية يوم <strong>7 ديسمبر</strong> للأطفال في <strong>مدرستين</strong> لشرح أهمية الزراعة، الاستدامة، وحماية الأرض (المدة من 3 لـ 4 ساعات بالكتير).
+                        </p>
+                    </div>
+
+                    <!-- Body Content -->
+                    <div class="p-5 sm:p-7 space-y-5">
+                        <!-- Key Metrics / Badges -->
+                        <div class="grid grid-cols-3 gap-2 sm:gap-3 text-center">
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">🎯</div>
+                                <div class="font-changa font-black text-sm sm:text-xl text-green-700 mt-1">مدرستين</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">الـ Goal المستهدف</div>
+                            </div>
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">📅</div>
+                                <div class="font-changa font-black text-sm sm:text-lg text-green-700 mt-1">7 ديسمبر</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">3 - 4 ساعات بالكتير</div>
+                            </div>
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">🌾</div>
+                                <div class="font-changa font-black text-sm sm:text-lg text-green-700 mt-1">نطاق الزراعة</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">توعية أطفال المدارس</div>
+                            </div>
+                        </div>
+
+                        <!-- HYPER-KINETIC BRUTALIST TABS FOR TRACK 1 -->
+                        <div class="bg-green-950/15 p-2.5 rounded-2xl brutal-border-sm grid grid-cols-3 gap-2.5 relative">
+                            <button onclick="switchTrackTab('schools', 'tasks', this, event)" class="brutal-tab-btn active-tab bg-schoolAcid text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-black text-yellow-300 font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-white shadow">⚡01</span>
+                                <i class="fa-solid fa-list-check text-sm sm:text-base"></i>
+                                <span>الخطوات</span>
+                            </button>
+                            <button onclick="switchTrackTab('schools', 'vibe', this, event)" class="brutal-tab-btn bg-white text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-black text-schoolAcid font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-white shadow">🔥VIBE</span>
+                                <i class="fa-solid fa-wand-sparkles text-sm sm:text-base text-green-700"></i>
+                                <span>كواليس اليوم</span>
+                            </button>
+                            <button onclick="switchTrackTab('schools', 'poll', this, event)" class="brutal-tab-btn bg-white text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-green-600 text-white font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-black shadow">💬LIVE</span>
+                                <i class="fa-brands fa-whatsapp text-sm sm:text-base text-green-600"></i>
+                                <span>تصويت الجروب</span>
+                            </button>
+                        </div>
+
+                        <!-- TAB PANEL 1: What Volunteers Will Do -->
+                        <div id="schools-tab-tasks" class="schools-tab-panel animate-tab-panel bg-white brutal-border-sm rounded-2xl p-5 space-y-3 relative overflow-hidden">
+                            <div class="flex items-center justify-between border-b-2 border-dashed border-zinc-300 pb-2">
+                                <h4 class="font-changa font-black text-lg sm:text-xl flex items-center gap-2 text-green-800">
+                                    <i class="fa-solid fa-clipboard-list"></i>
+                                    <span>هتعمل إيه في جزء المدارس (7 ديسمبر)؟</span>
+                                </h4>
+                                <span class="bg-lime-200 text-green-950 font-mono font-black text-[11px] px-2.5 py-0.5 rounded-lg border-2 border-black">3 - 4 HRS</span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm sm:text-base font-bold text-zinc-800">
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-1 cursor-pointer hover:bg-lime-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-schoolAcid brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">1</span>
+                                    <span>النزول يوم <strong>7 ديسمبر</strong> مع فريق <strong>FAO × FA Model</strong> بالتعاون مع <strong>حماة الأرض / حماة وطن</strong> لزيارة <strong>مدرستين</strong>.</span>
+                                </li>
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-2 cursor-pointer hover:bg-lime-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-schoolAcid brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">2</span>
+                                    <span>توصيل رسائل مبسطة وتفاعلية للأطفال عن <strong>أهمية الزراعة</strong> وإزاي نحافظ على أرضنا ومواردنا.</span>
+                                </li>
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-3 cursor-pointer hover:bg-lime-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-schoolAcid brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">3</span>
+                                    <span>اليوم كله خفيف وممتع ومدته ما بين <strong>3 إلى 4 ساعات بالكتير</strong> لتمثيل هوية <strong>FAO × FA Model</strong>.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- TAB PANEL 2: Day Vibe & Interactive Energy Boost -->
+                        <div id="schools-tab-vibe" class="schools-tab-panel hidden bg-white brutal-border-sm rounded-2xl p-5 space-y-3.5">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-changa font-black text-lg sm:text-xl flex items-center gap-2 text-green-800">
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <span>أجواء ومهارات مسار المدارس:</span>
+                                </h4>
+                                <button onclick="boostTrackEnergy('schools', event)" class="bg-yellow-300 hover:bg-schoolAcid text-black font-changa font-black text-xs px-2.5 py-1 rounded-lg border-2 border-black brutal-shadow-sm active:translate-y-0.5 transition">
+                                    ⚡ ارفع الحماس!
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-bold">
+                                <div class="stagger-1 bg-lime-100 brutal-border-sm rounded-xl p-3 hover:-rotate-1 transition">
+                                    <div class="font-changa font-black text-green-900 text-base">🎤 Presentation Skills</div>
+                                    <p class="text-zinc-800 mt-1">هتطور مهارتك في الكلام قدام جمهور وتبسيط مفاهيم الـ FAO للأطفال في المدرستين.</p>
+                                </div>
+                                <div class="stagger-2 bg-yellow-100 brutal-border-sm rounded-xl p-3 hover:rotate-1 transition">
+                                    <div class="font-changa font-black text-amber-900 text-base">🌱 أنشطة تفاعلية (3-4 ساعات)</div>
+                                    <p class="text-zinc-800 mt-1">مش مجرد محاضرة! ألعاب وأسئلة حماسية مع الأطفال يوم 7 ديسمبر.</p>
+                                </div>
+                            </div>
+                            <div class="stagger-3 bg-black text-schoolAcid font-mono text-xs p-3 rounded-xl flex items-center justify-between">
+                                <span id="schools-energy-label">⚡ HYPE METER: 100% SUPER ECO!</span>
+                                <span>🏫 2 SCHOOLS • DEC 7</span>
+                            </div>
+                        </div>
+
+                        <!-- TAB PANEL 3: WhatsApp Poll Box (Live Interactive Percentage & Group Link) -->
+                        <div id="schools-tab-poll" class="schools-tab-panel hidden bg-green-900 text-white brutal-border-sm rounded-2xl p-4 space-y-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="text-xs font-extrabold text-schoolAcid flex items-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                    <span>تصويت جروب The Skill Lab | FA Model:</span>
+                                </span>
+                                <span class="text-[11px] bg-black/50 px-2 py-0.5 rounded font-mono text-lime-200">النسب المئوية للتصويت 📊</span>
+                            </div>
+                            <div class="space-y-2.5">
+                                <button onclick="castLiveVote('schools', 0, 'بيس يلا هخش في دي لما تنزل الفورم! 🌱🔥 — ميعادنا يوم 7 ديسمبر في المدرستين!', 'schools', event)" class="stagger-1 w-full text-right bg-schoolAcid text-black font-extrabold text-xs sm:text-sm p-3 rounded-xl border-2 border-black hover:scale-[1.01] transition space-y-1.5">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span>✅ "بيس يلا هخش في دي لما تنزل الفورم"</span>
+                                        <span id="pct-schools-0" class="bg-black text-schoolAcid px-2.5 py-0.5 rounded-lg text-xs font-mono font-black shrink-0">82%</span>
+                                    </div>
+                                    <div class="w-full bg-black/20 h-2.5 rounded-full overflow-hidden border border-black">
+                                        <div id="bar-schools-0" class="poll-bar-fill bg-black h-full" style="width: 82%"></div>
+                                    </div>
+                                </button>
+                                <button onclick="castLiveVote('schools', 1, 'طالما مالكش خلق للأطفال.. يبقى مسار Free Mart مع بنك الطعام يوم 5 ديسمبر مستنيك! 🍱💪', 'food', event)" class="stagger-2 w-full text-right bg-green-800 hover:bg-green-700 text-green-100 font-bold text-xs sm:text-sm p-3 rounded-xl border-2 border-green-500 transition space-y-1.5">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span>⭕ "ماليش خلق للأطفال" (شوف المسار التاني 👈)</span>
+                                        <span id="pct-schools-1" class="bg-black/60 text-white px-2.5 py-0.5 rounded-lg text-xs font-mono font-black shrink-0">18%</span>
+                                    </div>
+                                    <div class="w-full bg-black/30 h-2.5 rounded-full overflow-hidden">
+                                        <div id="bar-schools-1" class="poll-bar-fill bg-schoolAcid h-full" style="width: 18%"></div>
+                                    </div>
+                                </button>
+                            </div>
+                            <!-- Direct WhatsApp Group Link -->
+                            <a href="https://chat.whatsapp.com/J0nfRI3Z79AIK8ROf8FG5e?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" rel="noopener noreferrer" class="stagger-3 w-full brutal-btn bg-white hover:bg-lime-200 text-black font-changa font-black text-xs sm:text-sm py-2.5 px-3 rounded-xl border-2 border-black flex items-center justify-center gap-2 text-center mt-2">
+                                <i class="fa-brands fa-whatsapp text-green-600 text-lg"></i>
+                                <span>ادخل جروب واتساب The Skill Lab | FA Model</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Footer CTA -->
+                <div class="p-5 sm:p-7 pt-0">
+                    <button onclick="selectTrackAndProceed('schools')" class="w-full brutal-btn bg-schoolAcid hover:bg-lime-300 text-black font-changa font-black text-base sm:text-xl py-4 px-4 sm:px-6 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-2 sm:gap-3">
+                        <i class="fa-solid fa-seedling text-xl sm:text-2xl shrink-0"></i>
+                        <span>اختيار مسار المدارس (7 ديسمبر • مدرستين)</span>
+                        <i class="fa-solid fa-arrow-left shrink-0"></i>
+                    </button>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- TRACK 2: FOOD DISTRIBUTION (ORANGE / GOLD / WARM IDENTITY)-->
+            <!-- ========================================================= -->
+            <article id="track-food" class="relative bg-foodCream brutal-border brutal-shadow-orange rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300">
+                
+                <!-- Top Striped Header -->
+                <div>
+                    <div class="bg-diagonal-orange border-b-4 border-black p-5 sm:p-6 relative">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <span class="bg-black text-orange-400 font-mono font-black text-xs sm:text-sm px-3.5 py-1.5 rounded-xl border-2 border-white">
+                                TRACK 02 // 5 DECEMBER • FREE MART
+                            </span>
+                            <span class="bg-white text-black font-extrabold text-xs sm:text-sm px-3 py-1 rounded-xl brutal-border-sm">
+                                🍱 أمام مقر بنك الطعام المصري
+                            </span>
+                        </div>
+
+                        <h3 class="font-changa font-black text-3xl sm:text-4xl text-black leading-tight">
+                            تجهيز وتوزيع بنظام Free Mart 🛒🤝
+                        </h3>
+                        <p class="font-extrabold text-sm sm:text-base text-orange-950 mt-2 bg-white/90 brutal-border-sm rounded-xl p-3">
+                            فعالية ميدانية يوم <strong>5 ديسمبر</strong> تشمل: <strong>تجهيز، تحضير، وتوزيع على المستحقين</strong> أمام مبنى مقر <strong>بنك الطعام المصري</strong> بنظام <strong>Free Mart</strong> (المدة من 3 لـ 4 ساعات بالكتير).
+                        </p>
+                    </div>
+
+                    <!-- Body Content -->
+                    <div class="p-5 sm:p-7 space-y-5">
+                        <!-- Key Metrics / Badges -->
+                        <div class="grid grid-cols-3 gap-2 sm:gap-3 text-center">
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">🛒</div>
+                                <div class="font-mono font-black text-sm sm:text-lg text-orange-600 mt-1">Free Mart</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">أمام مقر بنك الطعام</div>
+                            </div>
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">📅</div>
+                                <div class="font-changa font-black text-sm sm:text-lg text-orange-600 mt-1">5 ديسمبر</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">3 - 4 ساعات بالكتير</div>
+                            </div>
+                            <div class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2.5 sm:p-3 hover:-translate-y-1 transition">
+                                <div class="text-xl sm:text-2xl">🤝</div>
+                                <div class="font-changa font-black text-sm sm:text-lg text-orange-600 mt-1">للمستحقين</div>
+                                <div class="text-[11px] sm:text-xs font-extrabold text-zinc-700">تجهيز • تحضير • توزيع</div>
+                            </div>
+                        </div>
+
+                        <!-- HYPER-KINETIC BRUTALIST TABS FOR TRACK 2 -->
+                        <div class="bg-orange-950/15 p-2.5 rounded-2xl brutal-border-sm grid grid-cols-3 gap-2.5 relative">
+                            <button onclick="switchTrackTab('food', 'tasks', this, event)" class="brutal-tab-btn active-tab bg-orange-400 text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-black text-orange-400 font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-white shadow">⚡02</span>
+                                <i class="fa-solid fa-boxes-packing text-sm sm:text-base"></i>
+                                <span>الخطوات (Steps)</span>
+                            </button>
+                            <button onclick="switchTrackTab('food', 'vibe', this, event)" class="brutal-tab-btn bg-white text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-black text-yellow-300 font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-white shadow">🔥VIBE</span>
+                                <i class="fa-solid fa-fire-flame-curved text-sm sm:text-base text-orange-600"></i>
+                                <span>كواليس اليوم</span>
+                            </button>
+                            <button onclick="switchTrackTab('food', 'poll', this, event)" class="brutal-tab-btn bg-white text-black font-changa font-black text-xs sm:text-sm py-3 px-2 rounded-xl brutal-border-sm flex items-center justify-center gap-1.5">
+                                <span class="tab-live-dot absolute -top-2.5 -left-1.5 bg-orange-600 text-white font-mono text-[10px] px-1.5 py-0.5 rounded-md border border-black shadow">💬LIVE</span>
+                                <i class="fa-brands fa-whatsapp text-sm sm:text-base text-green-600"></i>
+                                <span>تصويت الجروب</span>
+                            </button>
+                        </div>
+
+                        <!-- TAB PANEL 1: What Volunteers Will Do (The 3 Steps) -->
+                        <div id="food-tab-tasks" class="food-tab-panel animate-tab-panel bg-white brutal-border-sm rounded-2xl p-5 space-y-3 relative overflow-hidden">
+                            <div class="flex items-center justify-between border-b-2 border-dashed border-zinc-300 pb-2">
+                                <h4 class="font-changa font-black text-lg sm:text-xl flex items-center gap-2 text-orange-700">
+                                    <i class="fa-solid fa-boxes-packing"></i>
+                                    <span>خطوات مسار الطعام (5 ديسمبر):</span>
+                                </h4>
+                                <span class="bg-orange-200 text-orange-950 font-mono font-black text-[11px] px-2.5 py-0.5 rounded-lg border-2 border-black">FREE MART</span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm sm:text-base font-bold text-zinc-800">
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-1 cursor-pointer hover:bg-orange-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-orange-400 text-black brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">1</span>
+                                    <span><strong>التجهيز والتحضير:</strong> التجمع يوم <strong>5 ديسمبر</strong> أمام مبنى مقر <strong>بنك الطعام المصري</strong> لفرز وتجهيز وتحضير الوجبات والمواد الغذائية.</span>
+                                </li>
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-2 cursor-pointer hover:bg-orange-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-orange-400 text-black brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">2</span>
+                                    <span><strong>التوزيع بنظام Free Mart:</strong> استقبال <strong>المستحقين</strong> أمام مقر بنك الطعام وتوزيع الاحتياجات عليهم بنظام <strong>Free Mart</strong> منظم وراقي.</span>
+                                </li>
+                                <li onclick="pulseTaskItem(this, event)" class="stagger-3 cursor-pointer hover:bg-orange-50 p-2 rounded-xl border-2 border-transparent hover:border-black transition flex items-start gap-2.5">
+                                    <span class="bg-orange-400 text-black brutal-border-sm rounded-lg w-7 h-7 flex items-center justify-center text-xs font-black shrink-0 mt-0.5">3</span>
+                                    <span><strong>المدة الزمنية:</strong> المهمة كلها هتكون ما بين <strong>3 إلى 4 ساعات بالكتير</strong> بروح فريق <strong>FAO × FA Model</strong>.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- TAB PANEL 2: Day Vibe & Action -->
+                        <div id="food-tab-vibe" class="food-tab-panel hidden bg-white brutal-border-sm rounded-2xl p-5 space-y-3.5">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-changa font-black text-lg sm:text-xl flex items-center gap-2 text-orange-700">
+                                    <i class="fa-solid fa-people-carry-box"></i>
+                                    <span>أجواء ومهارات مسار Free Mart:</span>
+                                </h4>
+                                <button onclick="boostTrackEnergy('food', event)" class="bg-yellow-300 hover:bg-orange-400 text-black font-changa font-black text-xs px-2.5 py-1 rounded-lg border-2 border-black brutal-shadow-sm active:translate-y-0.5 transition">
+                                    🔥 ارفع الحماس!
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-bold">
+                                <div class="stagger-1 bg-orange-100 brutal-border-sm rounded-xl p-3 hover:-rotate-1 transition">
+                                    <div class="font-changa font-black text-orange-900 text-base">🛒 تجربة Free Mart</div>
+                                    <p class="text-zinc-800 mt-1">تنظيم السوبر ماركت المجاني أمام مقر بنك الطعام المصري لخدمة المستحقين بكل كرامة ونظام.</p>
+                                </div>
+                                <div class="stagger-2 bg-yellow-100 brutal-border-sm rounded-xl p-3 hover:rotate-1 transition">
+                                    <div class="font-changa font-black text-amber-900 text-base">❤️ تجهيز وتحضير وتوزيع</div>
+                                    <p class="text-zinc-800 mt-1">هتعيش الـ 3 خطوات بإيدك وتشوف فرحة المستحقين في يوم خفيف (3-4 ساعات).</p>
+                                </div>
+                            </div>
+                            <div class="stagger-3 bg-black text-orange-400 font-mono text-xs p-3 rounded-xl flex items-center justify-between">
+                                <span id="food-energy-label">🔥 HYPE METER: 100% HERO ACTION!</span>
+                                <span>🛒 FREE MART • DEC 5</span>
+                            </div>
+                        </div>
+
+                        <!-- TAB PANEL 3: WhatsApp Poll Box (Sibling Panel, Live Interactive Percentage & Group Link) -->
+                        <div id="food-tab-poll" class="food-tab-panel hidden bg-orange-950 text-white brutal-border-sm rounded-2xl p-4 space-y-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="text-xs font-extrabold text-yellow-300 flex items-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                    <span>تصويت جروب The Skill Lab | FA Model:</span>
+                                </span>
+                                <span class="text-[11px] bg-black/50 px-2 py-0.5 rounded font-mono text-orange-200">النسب المئوية للتصويت 📊</span>
+                            </div>
+                            <div class="space-y-2">
+                                <button onclick="castLiveVote('food', 0, 'طبعاً شور هاجي! 🍱🔥 — ميعادنا يوم 5 ديسمبر قدام مقر بنك الطعام المصري!', 'food', event)" class="stagger-1 w-full text-right bg-orange-400 text-black font-extrabold text-xs sm:text-sm p-2.5 rounded-xl border-2 border-black hover:scale-[1.01] transition space-y-1.5">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span>✅ "طبعاً شور هاجي"</span>
+                                        <span id="pct-food-0" class="bg-black text-orange-400 px-2.5 py-0.5 rounded-lg text-xs font-mono font-black shrink-0">54%</span>
+                                    </div>
+                                    <div class="w-full bg-black/20 h-2 rounded-full overflow-hidden border border-black">
+                                        <div id="bar-food-0" class="poll-bar-fill bg-black h-full" style="width: 54%"></div>
+                                    </div>
+                                </button>
+                                <button onclick="castLiveVote('food', 1, 'مجنون أنا علشان أقول لا، هتفضح كده 😂🔥 — يلا بينا عالفورم!', 'food', event)" class="stagger-2 w-full text-right bg-yellow-300 text-black font-extrabold text-xs sm:text-sm p-2.5 rounded-xl border-2 border-black hover:scale-[1.01] transition space-y-1.5">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span>☑️ "مجنون أنا علشان أقول لا، هتفضح كده"</span>
+                                        <span id="pct-food-1" class="bg-black text-yellow-300 px-2.5 py-0.5 rounded-lg text-xs font-mono font-black shrink-0">15%</span>
+                                    </div>
+                                    <div class="w-full bg-black/20 h-2 rounded-full overflow-hidden border border-black">
+                                        <div id="bar-food-1" class="poll-bar-fill bg-black h-full" style="width: 15%"></div>
+                                    </div>
+                                </button>
+                                <button onclick="castLiveVote('food', 2, 'لاموني أصفر كاموني 🍋😂 — بطل هزار واختار مسارك يلا!', 'food', event)" class="stagger-3 w-full text-right bg-orange-900 hover:bg-orange-800 text-orange-100 font-bold text-xs sm:text-sm p-2.5 rounded-xl border-2 border-orange-600 transition space-y-1.5">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span>🍋 "لاموني أصفر كاموني"</span>
+                                        <span id="pct-food-2" class="bg-black/60 text-white px-2.5 py-0.5 rounded-lg text-xs font-mono font-black shrink-0">31%</span>
+                                    </div>
+                                    <div class="w-full bg-black/30 h-2 rounded-full overflow-hidden">
+                                        <div id="bar-food-2" class="poll-bar-fill bg-orange-400 h-full" style="width: 31%"></div>
+                                    </div>
+                                </button>
+                            </div>
+                            <!-- Direct WhatsApp Group Link -->
+                            <a href="https://chat.whatsapp.com/J0nfRI3Z79AIK8ROf8FG5e?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" rel="noopener noreferrer" class="stagger-3 w-full brutal-btn bg-white hover:bg-amber-200 text-black font-changa font-black text-xs sm:text-sm py-2.5 px-3 rounded-xl border-2 border-black flex items-center justify-center gap-2 text-center mt-2">
+                                <i class="fa-brands fa-whatsapp text-green-600 text-lg"></i>
+                                <span>ادخل جروب واتساب The Skill Lab | FA Model</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Footer CTA -->
+                <div class="p-5 sm:p-7 pt-0">
+                    <button onclick="selectTrackAndProceed('food')" class="w-full brutal-btn bg-orange-500 hover:bg-orange-400 text-white hover:text-black font-changa font-black text-base sm:text-xl py-4 px-4 sm:px-6 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-2 sm:gap-3">
+                        <i class="fa-solid fa-hand-holding-heart text-xl sm:text-2xl shrink-0"></i>
+                        <span>اختيار مسار بنك الطعام (5 ديسمبر • Free Mart)</span>
+                        <i class="fa-solid fa-arrow-left shrink-0"></i>
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- BRUTALIST SIDE-BY-SIDE COMPARISON TABLE -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <div class="bg-white brutal-border brutal-shadow-lg rounded-3xl p-4 sm:p-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b-4 border-black pb-4">
+                <div>
+                    <span class="bg-purple-300 brutal-border-sm px-3 py-1 rounded-lg font-mono font-bold text-xs">HEAD-TO-HEAD COMPARISON</span>
+                    <h3 class="font-changa font-black text-xl sm:text-3xl mt-2">مقارنة سريعة عشان تحسم قرارك ⚡</h3>
+                </div>
+                <button onclick="openQuizModal()" class="brutal-btn bg-yellow-300 text-black font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl brutal-border-sm brutal-shadow-sm">
+                    <i class="fa-solid fa-compass"></i> ساعدني أختار!
+                </button>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl brutal-border-sm">
+                <table class="w-full min-w-[540px] text-right border-collapse">
+                    <thead>
+                        <tr class="border-b-4 border-black text-xs sm:text-base font-changa font-black">
+                            <th class="p-3 sm:p-4 bg-zinc-100 border-l-4 border-black w-1/4">وجه المقارنة</th>
+                            <th class="p-3 sm:p-4 bg-schoolAcid border-l-4 border-black w-[37.5%]">🌱 الجزء الأول: توعية المدارس</th>
+                            <th class="p-3 sm:p-4 bg-orange-400 w-[37.5%]">🍱 الجزء الثاني: بنك الطعام (Free Mart)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-xs sm:text-base divide-y-2 divide-black">
+                        <tr>
+                            <td class="p-3 sm:p-4 bg-zinc-50 border-l-4 border-black font-extrabold">التنظيم</td>
+                            <td colspan="2" class="p-3 sm:p-4 bg-sky-100 text-faoBlue text-center font-mono font-black">
+                                FAO × FA Model
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 sm:p-4 bg-zinc-50 border-l-4 border-black font-extrabold">الجهة الشريكة والمكان</td>
+                            <td class="p-3 sm:p-4 bg-lime-50 border-l-4 border-black">جهة حماة الأرض / حماة وطن 🌍 (في <strong>مدرستين</strong>)</td>
+                            <td class="p-3 sm:p-4 bg-orange-50">أمام مبنى <strong>مقر بنك الطعام المصري</strong> 🏢 بنظام <strong>Free Mart</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 sm:p-4 bg-zinc-50 border-l-4 border-black font-extrabold">الموعد والمدة</td>
+                            <td class="p-3 sm:p-4 bg-lime-50 border-l-4 border-black text-green-900 font-black">📅 يوم 7 ديسمبر (من 3 لـ 4 ساعات بالكتير)</td>
+                            <td class="p-3 sm:p-4 bg-orange-50 text-orange-900 font-black">📅 يوم 5 ديسمبر (من 3 لـ 4 ساعات بالكتير)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 sm:p-4 bg-zinc-50 border-l-4 border-black font-extrabold">الخطوات والـ Goal</td>
+                            <td class="p-3 sm:p-4 bg-lime-50 border-l-4 border-black">نزول ميداني لتوعية الأطفال في <strong>مدرستين</strong> عن الزراعة وأهميتها</td>
+                            <td class="p-3 sm:p-4 bg-orange-50"><strong>تجهيز، تحضير، وتوزيع</strong> المواد الغذائية على <strong>المستحقين</strong> بنظام Free Mart</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 sm:p-4 bg-zinc-50 border-l-4 border-black font-extrabold">مناسب لمين أكتر؟</td>
+                            <td class="p-3 sm:p-4 bg-lime-50 border-l-4 border-black">اللي بيحب التعامل مع الأطفال، الشرح، التفاعل، وتبسيط المعلومة الزراعية</td>
+                            <td class="p-3 sm:p-4 bg-orange-50">اللي بيحب الحركة الميدانية، التجهيز والتحضير، وتنظيم التوزيع على المستحقين</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIRECT GOOGLE FORM LAUNCHPAD BANNER (FAO FIRST) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 pb-16">
+        <div class="bg-black text-white brutal-border brutal-shadow-lg rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 space-y-3">
+                    <div class="inline-block bg-yellow-300 text-black font-mono font-black text-xs px-3 py-1 rounded-lg">
+                        FAO × FA MODEL // FIELD PASS
+                    </div>
+                    <h2 class="font-changa font-black text-3xl sm:text-4xl text-white">
+                        قررت هتدخل في أنهي جزء؟ طلع تصريح المهمة وسجل في الفورم! 🚀
+                    </h2>
+                    <p class="text-zinc-300 font-bold text-base sm:text-lg">
+                        بمجرد الضغط على المسار اللي اخترته، هتظهرلك <span class="text-yellow-300">بطاقة المتطوع الميدانية</span> عشان تختم جاهزيتك وتنتقل فوراً لصفحة <span class="text-schoolAcid">Google Form</span> الخاصة بمتطوعي <span class="text-sky-400">FAO × FA Model</span>.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+                    <button onclick="selectTrackAndProceed('schools')" class="brutal-btn bg-schoolAcid text-black font-changa font-black text-base sm:text-lg py-3.5 px-5 rounded-2xl border-4 border-white flex items-center justify-between">
+                        <span>🌱 فورم المدارس (7 ديسمبر)</span>
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </button>
+                    <button onclick="selectTrackAndProceed('food')" class="brutal-btn bg-orange-500 text-white font-changa font-black text-base sm:text-lg py-3.5 px-5 rounded-2xl border-4 border-white flex items-center justify-between">
+                        <span>🍱 فورم بنك الطعام (5 ديسمبر)</span>
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (FAO ALWAYS FIRST) -->
+    <footer class="bg-yellow-300 border-t-4 border-black py-6 px-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-center font-bold text-sm">
+            <div class="flex flex-wrap items-center justify-center gap-2 text-center">
+                <span class="bg-faoBlue text-white font-mono px-2.5 py-1 rounded-lg border-2 border-black">FAO</span>
+                <span class="font-mono font-black text-lg">×</span>
+                <span class="bg-black text-white font-mono px-2.5 py-1 rounded-lg">FA MODEL</span>
+                <span class="font-changa font-extrabold">— UN Day Field Volunteering</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================================================= -->
+    <!-- MODAL 1: CREATIVE VIP FIELD MISSION PASS & GOOGLE FORM LAUNCHPAD   -->
+    <!-- ================================================================= -->
+    <div id="redirect-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <div id="redirect-modal-card" class="bg-white brutal-border brutal-shadow-lg rounded-3xl max-w-lg w-full overflow-hidden my-auto transform transition-all">
+            <!-- Dynamic Header -->
+            <div id="modal-track-header" class="bg-schoolAcid border-b-4 border-black p-4 sm:p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span id="modal-track-icon" class="text-2xl sm:text-3xl bg-white brutal-border-sm rounded-xl w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">🌱</span>
+                    <div>
+                        <span id="modal-track-tag" class="font-mono font-black text-[11px] sm:text-xs bg-black text-white px-2 py-0.5 rounded">TRACK 01 // FAO × FA MODEL</span>
+                        <h3 id="modal-track-title" class="font-changa font-black text-lg sm:text-2xl text-black leading-tight mt-0.5">مسار توعية المدارس</h3>
+                    </div>
+                </div>
+                <button onclick="closeRedirectModal()" class="w-9 h-9 sm:w-10 sm:h-10 bg-white brutal-border-sm rounded-xl font-black text-base sm:text-lg hover:bg-red-400 transition shrink-0">✕</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-4 sm:p-6 space-y-4">
+                <!-- Mission Summary Box -->
+                <div class="bg-zinc-100 brutal-border-sm rounded-2xl p-3.5 space-y-2 text-xs sm:text-sm font-bold">
+                    <div class="flex justify-between gap-2">
+                        <span class="text-zinc-600">الفعالية:</span>
+                        <span class="font-black text-left">الجزء الأول من UN Day (غير الـ Ceremony)</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-zinc-600">التنظيم:</span>
+                        <span class="font-mono font-black text-faoBlue text-left">FAO × FA Model</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-zinc-600">الموعد والمدة:</span>
+                        <span id="modal-track-date" class="font-black text-emerald-800 text-left">يوم 7 ديسمبر (3 - 4 ساعات بالكتير)</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-zinc-600">التفاصيل والمكان:</span>
+                        <span id="modal-track-partner" class="font-black text-left">حماة الأرض (مدرستين)</span>
+                    </div>
+                </div>
+
+                <!-- Creative Downloadable & Story-Ready Volunteer VIP Pass -->
+                <div class="bg-yellow-50 brutal-border-sm rounded-2xl p-3.5 sm:p-4 space-y-3.5 relative overflow-hidden">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="font-changa font-black text-xs sm:text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-id-card-clip text-faoBlue"></i>
+                            <span>بطاقة تصريح المهمة الميدانية (للفورم والاستوري):</span>
+                        </span>
+                        <span class="font-mono font-bold text-[10px] bg-black text-yellow-300 px-2.5 py-0.5 rounded shrink-0">VIP PASS</span>
+                    </div>
+
+                    <!-- Optional Volunteer Name Input for Personalized Story Card -->
+                    <div>
+                        <label for="volunteer-name-input" class="text-xs font-extrabold text-zinc-700 block mb-1">اكتب اسمك ليظهر على بطاقة الذكرى (اختياري):</label>
+                        <input id="volunteer-name-input" type="text" maxlength="28" oninput="renderPassCanvas()" placeholder="مثال: أحمد محمد / بطل التطوع..." class="w-full bg-white brutal-border-sm rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-black placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-black">
+                    </div>
+
+                    <!-- Role Badge Selector -->
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-extrabold text-zinc-700 block">اختار لقبك الميداني (Role) في البطاقة:</label>
+                        <div id="role-badges-container" class="grid grid-cols-2 gap-2">
+                            <!-- Dynamically populated by JS based on track -->
+                        </div>
+                    </div>
+
+                    <!-- Live Canvas Preview of the Brutalist Story Card -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-zinc-600">
+                            <span>👀 معاينة بطاقتك (جاهزة للتحميل والاستوري):</span>
+                            <button onclick="stampMissionPass(event)" id="stamp-action-btn" class="bg-black text-yellow-300 hover:bg-zinc-800 font-changa font-black text-[11px] px-2.5 py-1 rounded-lg border-2 border-black transition">
+                                ⚡ اضغط لختم البطاقة!
+                            </button>
+                        </div>
+
+                        <div id="pass-canvas-wrapper" class="bg-white brutal-border-sm brutal-shadow-sm rounded-2xl p-2 flex items-center justify-center">
+                            <canvas id="vip-pass-canvas" width="1080" height="1250" class="w-full max-w-[310px] h-auto rounded-xl border-2 border-black"></canvas>
+                        </div>
+
+                        <!-- Download & Share Story Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                            <button type="button" onclick="downloadPassImage(event)" class="brutal-btn bg-black text-yellow-300 hover:bg-zinc-800 font-changa font-black text-xs sm:text-sm py-2.5 px-3 rounded-xl border-2 border-black flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-download"></i>
+                                <span>تحميل البطاقة كصورة (PNG)</span>
+                            </button>
+                            <button type="button" onclick="sharePassToStory(event)" class="brutal-btn bg-white hover:bg-pink-200 text-black font-changa font-black text-xs sm:text-sm py-2.5 px-3 rounded-xl border-2 border-black flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-share-nodes text-pink-600"></i>
+                                <span>مشاركة على الاستوري 📲</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary Redirect Button -->
+                <div class="pt-1 space-y-2.5">
+                    <a id="google-form-link-btn" href="#" target="_blank" rel="noopener noreferrer" onclick="handleFormClick(event)" class="w-full brutal-btn bg-schoolAcid text-black font-changa font-black text-lg sm:text-xl py-4 px-6 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-3 text-center">
+                        <span>الانتقال إلى Google Form الآن</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                    <p id="form-status-note" class="text-center text-xs font-bold text-zinc-600"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODAL 2: 5-QUESTION TRACK MATCHER QUIZ                            -->
+    <!-- ================================================================= -->
+    <div id="quiz-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <div class="bg-white brutal-border brutal-shadow-lg rounded-3xl max-w-xl w-full overflow-hidden my-auto max-h-[92vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="bg-purple-400 border-b-4 border-black p-4 sm:p-5 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl">🧭</span>
+                    <div>
+                        <h3 class="font-changa font-black text-lg sm:text-2xl leading-none">اختبار تحديد المسار السريع</h3>
+                        <span id="quiz-progress-badge" class="font-mono font-bold text-[11px] bg-black text-yellow-300 px-2 py-0.5 rounded mt-1 inline-block">0 / 5 أسئلة مجابة</span>
+                    </div>
+                </div>
+                <button onclick="closeQuizModal()" class="w-9 h-9 sm:w-10 sm:h-10 bg-white brutal-border-sm rounded-xl font-black text-lg hover:bg-red-400 transition shrink-0">✕</button>
+            </div>
+
+            <!-- Scrollable Questions Body -->
+            <div class="p-4 sm:p-6 space-y-4 overflow-y-auto">
+                <p class="font-bold text-xs sm:text-sm text-zinc-800 bg-purple-100 brutal-border-sm rounded-xl p-3">
+                    الفعاليتين في أيام منفصلة (<strong>5 ديسمبر</strong> لبنك الطعام، و<strong>7 ديسمبر</strong> للمدارس) وكل يوم من <strong>3 لـ 4 ساعات بالكتير</strong>! جاوب على الـ <strong>5 أسئلة</strong> دول عشان تعرف أنهي مسار لايق عليك أكتر:
+                </p>
+
+                <!-- Question 1 -->
+                <div class="space-y-2 bg-zinc-50 p-3 rounded-2xl border-2 border-black">
+                    <label class="font-changa font-black text-sm sm:text-base block">1. بتلاقي نفسك أشطر في إيه؟</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="pickQuizAnswer(1, 'schools', event)" id="q1-schools" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-schoolAcid transition">
+                            🗣️ الكلام، الشرح، والتفاعل مع الأطفال في مدرستين
+                        </button>
+                        <button onclick="pickQuizAnswer(1, 'food', event)" id="q1-food" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-orange-300 transition">
+                            📦 تجهيز وتحضير وتوزيع للمستحقين بنظام Free Mart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="space-y-2 bg-zinc-50 p-3 rounded-2xl border-2 border-black">
+                    <label class="font-changa font-black text-sm sm:text-base block">2. أنهي ميعاد ومهمة في الـ FAO مناسبين ليك أكتر؟</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="pickQuizAnswer(2, 'schools', event)" id="q2-schools" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-schoolAcid transition">
+                            🌱 يوم 7 ديسمبر: توعية عن الزراعة وحماية الأرض (مدرستين)
+                        </button>
+                        <button onclick="pickQuizAnswer(2, 'food', event)" id="q2-food" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-orange-300 transition">
+                            🍱 يوم 5 ديسمبر: إطعام وتوزيع للمستحقين أمام مقر بنك الطعام
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="space-y-2 bg-zinc-50 p-3 rounded-2xl border-2 border-black">
+                    <label class="font-changa font-black text-sm sm:text-base block">3. طاقتك في الـ 3 أو 4 ساعات بتكون أعلى فين؟</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="pickQuizAnswer(3, 'schools', event)" id="q3-schools" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-schoolAcid transition">
+                            🏫 جو الفصول والأنشطة التفاعلية والألعاب التعليمية
+                        </button>
+                        <button onclick="pickQuizAnswer(3, 'food', event)" id="q3-food" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-orange-300 transition">
+                            🛒 أمام مقر بنك الطعام وسط حركة التجهيز والتحضير والـ Free Mart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="space-y-2 bg-zinc-50 p-3 rounded-2xl border-2 border-black">
+                    <label class="font-changa font-black text-sm sm:text-base block">4. إيه نوع الأثر اللي يفرحك أكتر آخر اليوم؟</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="pickQuizAnswer(4, 'schools', event)" id="q4-schools" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-schoolAcid transition">
+                            💡 طفل اتعلم معلومة جديدة عن الزراعة وحب يزرع بإيده
+                        </button>
+                        <button onclick="pickQuizAnswer(4, 'food', event)" id="q4-food" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-orange-300 transition">
+                            ❤️ أسرة مستحقة اختارت احتياجاتها من الـ Free Mart بفرحة وكرامة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="space-y-2 bg-zinc-50 p-3 rounded-2xl border-2 border-black">
+                    <label class="font-changa font-black text-sm sm:text-base block">5. لو هتختار شريكك في المهمة هيكون مين؟</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="pickQuizAnswer(5, 'schools', event)" id="q5-schools" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-schoolAcid transition">
+                            🌍 أبطال حماة الأرض / حماة وطن (حملة المدرستين - 7 ديسمبر)
+                        </button>
+                        <button onclick="pickQuizAnswer(5, 'food', event)" id="q5-food" class="quiz-opt text-right p-2.5 rounded-xl brutal-border-sm font-bold text-xs sm:text-sm bg-white hover:bg-orange-300 transition">
+                            🤝 فريق بنك الطعام المصري (Free Mart للمستحقين - 5 ديسمبر)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result Box -->
+                <div id="quiz-result-box" class="hidden brutal-border-sm rounded-2xl p-4 space-y-3 animate-tab-panel">
+                    <div id="quiz-result-text" class="font-changa font-black text-base sm:text-lg"></div>
+                    <button id="quiz-result-btn" class="w-full brutal-btn bg-black text-white font-changa font-bold py-3.5 rounded-xl text-sm sm:text-base">
+                        اعتمد المسار ده وافتح بطاقة المهمة! 🚀
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING TOAST NOTIFICATION FOR POLL VIBES -->
+    <div id="vibe-toast" class="fixed bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 hidden">
+        <div class="bg-yellow-300 text-black brutal-border brutal-shadow rounded-2xl p-4 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🔥</span>
+                <p id="vibe-toast-text" class="font-extrabold text-xs sm:text-sm"></p>
+            </div>
+            <button onclick="hideVibeToast()" class="bg-black text-white w-7 h-7 rounded-lg font-bold text-xs shrink-0">✕</button>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================================
+        // HARDCODED GOOGLE FORM LINKS (SEND YOUR TWO LINKS TO PLACE THEM HERE)
+        // =========================================================================
+        const FORM_URL_SCHOOLS = ""; // سيتم وضع لينك فورم المدارس (حماة الأرض) هنا
+        const FORM_URL_FOOD = "";    // سيتم وضع لينك فورم توزيع الوجبات (بنك الطعام) هنا
+
+        let currentSelectedTrack = 'schools';
+        let quizState = { q1: null, q2: null, q3: null, q4: null, q5: null };
+
+        // =========================================================================
+        // TONE.JS PROCEDURAL SOUNDTRACKS & BRUTALIST SFX ENGINE
+        // =========================================================================
+        let isMusicPlaying = false;
+        let isSfxEnabled = true;
+        let currentBeatStyle = 'funk';
+        let musicLoop = null;
+        let funkSynth = null;
+        let ecoMarimba = null;
+        let actionSynth = null;
+        let bassSynth = null;
+        let kickSynth = null;
+        let hatSynth = null;
+        let sfxSynth = null;
+
+        // 3 Completely Distinct 16-Step Musical Arrangements (Different BPM, Instruments & Groove)
+        const SOUNDTRACK_PATTERNS = {
+            // 1. Electro-Disco Funk (120 BPM): Brassy chords, slap octave bass & 4-on-the-floor groove
+            funk: {
+                bpm: 120,
+                lead: [
+                    ['C4', 'Eb4', 'G4'], null, 'C5', null,
+                    ['F4', 'A4', 'C5'], null, 'Eb5', 'D5',
+                    ['Bb3', 'D4', 'F4'], null, 'G4', 'Bb4',
+                    ['G4', 'B4', 'D5'], null, 'C5', null
+                ],
+                bass: [
+                    'C2', 'C3', null, 'C2',
+                    'F2', 'F3', null, 'Eb2',
+                    'Bb1', 'Bb2', null, 'Bb1',
+                    'G1', 'G2', 'A2', 'B2'
+                ],
+                kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0],
+                hat:  [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1]
+            },
+            // 2. Eco Schools (94 BPM): Cheerful Tropical Kalimba/Marimba Plucks, Nature Bells & Soft Bass
+            schools: {
+                bpm: 94,
+                lead: [
+                    'F5', 'C5', 'A4', 'C5',
+                    'D5', 'A5', 'F5', null,
+                    'G5', 'D5', 'Bb4', 'D5',
+                    'E5', 'C5', 'G5', 'A5'
+                ],
+                bass: [
+                    'F2', null, null, null,
+                    'D2', null, 'A2', null,
+                    'Bb1', null, null, null,
+                    'C2', null, 'G2', null
+                ],
+                kick: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0],
+                hat:  [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0]
+            },
+            // 3. Food Bank Action (138 BPM): High-Energy Breakbeat, Deep Sub-Bass & Fast Arcade Synth Riff
+            food: {
+                bpm: 138,
+                lead: [
+                    'E4', 'G4', 'B4', 'E5',
+                    'D5', 'B4', 'G4', null,
+                    'A4', 'C5', 'E5', 'G5',
+                    'F#5', 'D5', 'B4', 'A4'
+                ],
+                bass: [
+                    'E1', 'E1', null, 'E1',
+                    'G1', null, 'A1', null,
+                    'C1', 'C1', null, 'C1',
+                    'D1', null, 'B1', 'D2'
+                ],
+                kick: [1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0],
+                hat:  [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1]
+            }
+        };
+
+        async function initAudioEngine() {
+            if (typeof Tone === 'undefined') return;
+            await Tone.start();
+
+            if (!funkSynth) {
+                // Funk Brassy PolySynth
+                funkSynth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'sawtooth' },
+                    envelope: { attack: 0.01, decay: 0.18, sustain: 0.15, release: 0.2 }
+                }).toDestination();
+                funkSynth.volume.value = -12;
+
+                // Schools Wooden Kalimba / Marimba Pluck Synth
+                ecoMarimba = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'sine' },
+                    envelope: { attack: 0.003, decay: 0.22, sustain: 0.0, release: 0.25 }
+                }).toDestination();
+                ecoMarimba.volume.value = -6;
+
+                // Food Track Fast Action FM Lead
+                actionSynth = new Tone.MonoSynth({
+                    oscillator: { type: 'fmsquare', modulationIndex: 3 },
+                    envelope: { attack: 0.005, decay: 0.12, sustain: 0.1, release: 0.1 }
+                }).toDestination();
+                actionSynth.volume.value = -13;
+
+                // Bass Synth
+                bassSynth = new Tone.MonoSynth({
+                    oscillator: { type: 'triangle' },
+                    envelope: { attack: 0.01, decay: 0.2, sustain: 0.2, release: 0.15 }
+                }).toDestination();
+                bassSynth.volume.value = -9;
+
+                // Punchy Kick Drum
+                kickSynth = new Tone.MembraneSynth({
+                    pitchDecay: 0.04,
+                    octaves: 5,
+                    envelope: { attack: 0.001, decay: 0.2, sustain: 0 }
+                }).toDestination();
+                kickSynth.volume.value = -8;
+
+                // Crisp Hi-Hat / Shaker
+                hatSynth = new Tone.NoiseSynth({
+                    noise: { type: 'white' },
+                    envelope: { attack: 0.001, decay: 0.04, sustain: 0 }
+                }).toDestination();
+                hatSynth.volume.value = -18;
+
+                // UI SFX Synth
+                sfxSynth = new Tone.Synth({
+                    oscillator: { type: 'sine' },
+                    envelope: { attack: 0.005, decay: 0.1, sustain: 0.05, release: 0.1 }
+                }).toDestination();
+                sfxSynth.volume.value = -8;
+            }
+        }
+
+        async function playSFX(type = 'click') {
+            if (!isSfxEnabled || typeof Tone === 'undefined') return;
+            try {
+                await initAudioEngine();
+                const now = Tone.now();
+                if (type === 'tab') {
+                    sfxSynth.triggerAttackRelease('E5', '32n', now);
+                    sfxSynth.triggerAttackRelease('A5', '32n', now + 0.05);
+                    sfxSynth.triggerAttackRelease('C6', '32n', now + 0.1);
+                } else if (type === 'vote') {
+                    sfxSynth.triggerAttackRelease('G4', '32n', now);
+                    sfxSynth.triggerAttackRelease('B4', '32n', now + 0.06);
+                    sfxSynth.triggerAttackRelease('D5', '16n', now + 0.12);
+                } else if (type === 'stamp') {
+                    kickSynth.triggerAttackRelease('C1', '16n', now);
+                    funkSynth.triggerAttackRelease(['G4', 'B4', 'D5'], '8n', now + 0.05);
+                } else if (type === 'fanfare') {
+                    funkSynth.triggerAttackRelease(['C4', 'E4', 'G4'], '16n', now);
+                    funkSynth.triggerAttackRelease(['E4', 'G4', 'C5'], '8n', now + 0.12);
+                } else {
+                    sfxSynth.triggerAttackRelease('C5', '32n', now);
+                }
+            } catch (e) {
+                // Ignore if audio context not unlocked yet
+            }
+        }
+
+        async function toggleSoundtrack(event) {
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🎵', '🔥', '⚡', '🎧']);
+            await initAudioEngine();
+
+            const btn = document.getElementById('music-toggle-btn');
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+            const eq = document.getElementById('eq-visualizer');
+
+            if (isMusicPlaying) {
+                Tone.Transport.stop();
+                if (musicLoop) musicLoop.stop();
+                isMusicPlaying = false;
+                icon.className = 'fa-solid fa-play';
+                label.textContent = 'تشغيل الساوند تراك';
+                btn.classList.replace('bg-lime-400', 'bg-yellow-300');
+                eq.classList.remove('playing');
+            } else {
+                startSequence(currentBeatStyle);
+                isMusicPlaying = true;
+                icon.className = 'fa-solid fa-pause';
+                label.textContent = 'إيقاف الساوند تراك';
+                btn.classList.replace('bg-yellow-300', 'bg-lime-400');
+                eq.classList.add('playing');
+            }
+        }
+
+        function startSequence(styleKey) {
+            if (typeof Tone === 'undefined') return;
+            const pattern = SOUNDTRACK_PATTERNS[styleKey] || SOUNDTRACK_PATTERNS.funk;
+            Tone.Transport.bpm.value = pattern.bpm;
+
+            // Adjust bass timbre per style for extra distinction
+            if (bassSynth) {
+                if (styleKey === 'funk') bassSynth.oscillator.type = 'sawtooth';
+                else if (styleKey === 'schools') bassSynth.oscillator.type = 'sine';
+                else bassSynth.oscillator.type = 'square';
+            }
+
+            if (musicLoop) {
+                musicLoop.dispose();
+            }
+
+            let step = 0;
+            musicLoop = new Tone.Loop((time) => {
+                const idx = step % 16;
+                const leadNote = pattern.lead[idx];
+                const bassNote = pattern.bass[idx];
+                const kickHit = pattern.kick[idx];
+                const hatHit = pattern.hat[idx];
+
+                // Trigger style-specific lead instrument
+                if (leadNote) {
+                    if (styleKey === 'funk' && funkSynth) {
+                        funkSynth.triggerAttackRelease(leadNote, '16n', time);
+                    } else if (styleKey === 'schools' && ecoMarimba) {
+                        ecoMarimba.triggerAttackRelease(leadNote, '8n', time);
+                    } else if (styleKey === 'food' && actionSynth) {
+                        actionSynth.triggerAttackRelease(leadNote, '16n', time);
+                    }
+                }
+
+                // Trigger Bass
+                if (bassNote && bassSynth) {
+                    bassSynth.triggerAttackRelease(bassNote, '16n', time);
+                }
+
+                // Trigger Percussion
+                if (kickHit && kickSynth) {
+                    kickSynth.triggerAttackRelease(styleKey === 'schools' ? 'G1' : 'C1', '16n', time);
+                }
+                if (hatHit && hatSynth) {
+                    hatSynth.triggerAttackRelease('32n', time);
+                }
+
+                step++;
+            }, '16n').start(0);
+
+            Tone.Transport.start();
+        }
+
+        async function changeBeatStyle(newStyle) {
+            currentBeatStyle = newStyle;
+            playSFX('tab');
+            if (isMusicPlaying) {
+                startSequence(newStyle);
+            }
+        }
+
+        function toggleSFX() {
+            isSfxEnabled = !isSfxEnabled;
+            const btn = document.getElementById('sfx-toggle-btn');
+            btn.textContent = isSfxEnabled ? 'SFX: ON 🔊' : 'SFX: OFF 🔇';
+            btn.className = isSfxEnabled
+                ? 'bg-zinc-800 hover:bg-zinc-700 text-schoolAcid text-xs font-mono font-bold px-2.5 py-1.5 rounded-lg border border-zinc-600 transition'
+                : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 text-xs font-mono font-bold px-2.5 py-1.5 rounded-lg border border-zinc-600 transition';
+            if (isSfxEnabled) playSFX('click');
+        }
+
+        // =========================================================================
+        // EMOJI PARTICLE BURST EFFECT (MAXIMALIST INTERACTION)
+        // =========================================================================
+        function spawnEmojiBurst(x, y, emojis = ['🌱', '🍱', '⚡', '🔥']) {
+            if (!x || !y) return;
+            for (let i = 0; i < 8; i++) {
+                const span = document.createElement('span');
+                span.className = 'emoji-particle';
+                span.textContent = emojis[i % emojis.length];
+                const angle = (Math.PI * 2 * i) / 8;
+                const dist = 45 + Math.random() * 65;
+                span.style.left = `${x - 12}px`;
+                span.style.top = `${y - 12}px`;
+                span.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+                span.style.setProperty('--ty', `${Math.sin(angle) * dist - 35}px`);
+                span.style.setProperty('--rot', `${(Math.random() - 0.5) * 110}deg`);
+                document.body.appendChild(span);
+                setTimeout(() => span.remove(), 850);
+            }
+        }
+
+        // =========================================================================
+        // HYPER-KINETIC TRACK TABS SWITCHER & INNER INTERACTIONS
+        // =========================================================================
+        function switchTrackTab(trackPrefix, tabKey, btnEl, event) {
+            playSFX('tab');
+            if (event) {
+                const emojis = trackPrefix === 'schools' ? ['🌱', '🏫', '🌾', '⚡'] : ['🍱', '🛒', '🤝', '🔥'];
+                spawnEmojiBurst(event.clientX, event.clientY, emojis);
+            }
+
+            // Jolt the parent card slightly for kinetic feedback
+            const parentArticle = document.getElementById(`track-${trackPrefix}`);
+            if (parentArticle) {
+                parentArticle.classList.remove('animate-jolt');
+                void parentArticle.offsetWidth;
+                parentArticle.classList.add('animate-jolt');
+            }
+
+            // Hide all panels in this track
+            document.querySelectorAll(`.${trackPrefix}-tab-panel`).forEach(panel => {
+                panel.classList.add('hidden');
+                panel.classList.remove('animate-tab-panel');
+            });
+
+            // Show target panel with 3D flip + staggered children animation
+            const targetPanel = document.getElementById(`${trackPrefix}-tab-${tabKey}`);
+            if (targetPanel) {
+                targetPanel.classList.remove('hidden');
+                void targetPanel.offsetWidth; // Reflow to restart animation
+                targetPanel.classList.add('animate-tab-panel');
+            }
+
+            // Update active tab button styles
+            const activeBg = trackPrefix === 'schools' ? 'bg-schoolAcid' : 'bg-orange-400';
+            const parentContainer = btnEl.parentElement;
+            parentContainer.querySelectorAll('.brutal-tab-btn').forEach(b => {
+                b.classList.remove('active-tab', activeBg);
+                b.classList.add('bg-white');
+            });
+
+            btnEl.classList.remove('bg-white');
+            btnEl.classList.add('active-tab', activeBg);
+        }
+
+        function pulseTaskItem(liEl, event) {
+            playSFX('click');
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['✅', '⚡', '🌟']);
+            liEl.classList.add('bg-yellow-200', 'border-black');
+            setTimeout(() => {
+                liEl.classList.remove('bg-yellow-200');
+            }, 500);
+        }
+
+        let schoolsEnergyCount = 100;
+        let foodEnergyCount = 100;
+        function boostTrackEnergy(trackPrefix, event) {
+            playSFX('vote');
+            if (trackPrefix === 'schools') {
+                schoolsEnergyCount += 25;
+                const el = document.getElementById('schools-energy-label');
+                if (el) el.textContent = `⚡ HYPE METER: ${schoolsEnergyCount}% SUPER ECO!`;
+                if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🌱', '🚀', '⚡', '🌿']);
+            } else {
+                foodEnergyCount += 25;
+                const el = document.getElementById('food-energy-label');
+                if (el) el.textContent = `🔥 HYPE METER: ${foodEnergyCount}% HERO ACTION!`;
+                if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🍱', '🔥', '💪', '❤️']);
+            }
+        }
+
+        // Poll Percentages State (Based on actual WhatsApp Group Poll ratios, showing % only)
+        const POLL_WEIGHTS = {
+            schools: [28, 6],      // 82%, 18%
+            food: [14, 4, 8]       // 54%, 15%, 31%
+        };
+
+        function castLiveVote(trackKey, optionIdx, message, mood, event) {
+            const weights = POLL_WEIGHTS[trackKey];
+            if (weights && typeof weights[optionIdx] === 'number') {
+                weights[optionIdx] += 1;
+                const total = weights.reduce((acc, v) => acc + v, 0);
+
+                let sumPct = 0;
+                const pcts = weights.map((w, i) => {
+                    if (i === weights.length - 1) return Math.max(0, 100 - sumPct);
+                    const p = Math.round((w / total) * 100);
+                    sumPct += p;
+                    return p;
+                });
+
+                pcts.forEach((p, idx) => {
+                    const pctBadge = document.getElementById(`pct-${trackKey}-${idx}`);
+                    const barFill = document.getElementById(`bar-${trackKey}-${idx}`);
+                    if (pctBadge) pctBadge.textContent = `${p}% ${idx === optionIdx ? '🔥' : ''}`;
+                    if (barFill) barFill.style.width = `${p}%`;
+                });
+            }
+            triggerVibeQuote(message, mood, event);
+        }
+
+        // =========================================================================
+        // TRACK METADATA & CREATIVE FIELD PASS ROLES
+        // =========================================================================
+        const TRACK_DATA = {
+            schools: {
+                tag: 'TRACK 01 // 7 DEC (3-4 HRS)',
+                title: 'حملة توعية المدارس (مدرستين)',
+                dateInfo: '📅 يوم 7 ديسمبر (من 3 لـ 4 ساعات بالكتير)',
+                partner: 'حماة الأرض / حماة وطن 🌍 (نطاق مدرستين)',
+                icon: '🌱',
+                headerBg: 'bg-schoolAcid',
+                btnBg: 'bg-schoolAcid hover:bg-lime-300 text-black',
+                roles: [
+                    '🌱 سفير الزراعة الخضراء',
+                    '🎤 مبدع التوعية بالمدرستين',
+                    '🌍 بطل حماة الأرض',
+                    '🏫 قائد الأنشطة التفاعلية'
+                ]
+            },
+            food: {
+                tag: 'TRACK 02 // 5 DEC (3-4 HRS)',
+                title: 'تجهيز وتوزيع Free Mart (بنك الطعام)',
+                dateInfo: '📅 يوم 5 ديسمبر (من 3 لـ 4 ساعات بالكتير)',
+                partner: 'أمام مبنى مقر بنك الطعام المصري 🛒 (للمستحقين)',
+                icon: '🍱',
+                headerBg: 'bg-orange-400',
+                btnBg: 'bg-orange-500 hover:bg-orange-400 text-white hover:text-black',
+                roles: [
+                    '🛒 منسق Free Mart الميداني',
+                    '📦 بطل التجهيز والتحضير',
+                    '🤝 سفير خدمة المستحقين',
+                    '⚡ قائد الحركة أمام مقر بنك الطعام'
+                ]
+            }
+        };
+
+        // =========================================================================
+        // VISUAL MOOD SWITCHER (EXPRESSIVE COLORS FOR EACH TRACK)
+        // =========================================================================
+        function setVisualMood(mood, event) {
+            playSFX('tab');
+            const body = document.body;
+            const schoolCard = document.getElementById('track-schools');
+            const foodCard = document.getElementById('track-food');
+            const beatSelector = document.getElementById('beat-selector');
+
+            // Update active state on top mood buttons
+            document.querySelectorAll('.mood-btn').forEach(btn => btn.classList.remove('active-tab'));
+            const activeMoodBtn = document.getElementById(`mood-${mood}`);
+            if (activeMoodBtn) activeMoodBtn.classList.add('active-tab');
+
+            if (mood === 'schools') {
+                if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🌱', '🌿', '🏫', '🌍']);
+                body.style.setProperty('--bg-main', '#ECFCCB');
+                schoolCard.classList.add('ring-4', 'sm:ring-8', 'ring-lime-400', 'animate-jolt');
+                foodCard.classList.remove('ring-4', 'sm:ring-8', 'ring-orange-400', 'animate-jolt');
+                foodCard.style.opacity = '0.85';
+                schoolCard.style.opacity = '1';
+                if (beatSelector) {
+                    beatSelector.value = 'schools';
+                    if (isMusicPlaying) startSequence('schools');
+                }
+            } else if (mood === 'food') {
+                if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🍱', '🍲', '🤝', '🔥']);
+                body.style.setProperty('--bg-main', '#FFEDD5');
+                foodCard.classList.add('ring-4', 'sm:ring-8', 'ring-orange-400', 'animate-jolt');
+                schoolCard.classList.remove('ring-4', 'sm:ring-8', 'ring-lime-400', 'animate-jolt');
+                schoolCard.style.opacity = '0.85';
+                foodCard.style.opacity = '1';
+                if (beatSelector) {
+                    beatSelector.value = 'food';
+                    if (isMusicPlaying) startSequence('food');
+                }
+            } else {
+                if (event) spawnEmojiBurst(event.clientX, event.clientY, ['🔥', '⚡', '🌱', '🍱']);
+                body.style.setProperty('--bg-main', '#FFFDF7');
+                schoolCard.classList.remove('ring-4', 'sm:ring-8', 'ring-lime-400', 'animate-jolt');
+                foodCard.classList.remove('ring-4', 'sm:ring-8', 'ring-orange-400', 'animate-jolt');
+                schoolCard.style.opacity = '1';
+                foodCard.style.opacity = '1';
+                if (beatSelector) {
+                    beatSelector.value = 'funk';
+                    if (isMusicPlaying) startSequence('funk');
+                }
+            }
+        }
+
+        function scrollToTrack(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setVisualMood(id === 'track-schools' ? 'schools' : 'food');
+            }
+        }
+
+        // =========================================================================
+        // TRACK SELECTION & CREATIVE VIP FIELD PASS MODAL
+        // =========================================================================
+        let currentSelectedRole = '';
+        let isPassStamped = true;
+
+        function selectTrackAndProceed(trackKey) {
+            playSFX('fanfare');
+            currentSelectedTrack = trackKey;
+            const info = TRACK_DATA[trackKey];
+
+            const header = document.getElementById('modal-track-header');
+            header.className = `${info.headerBg} border-b-4 border-black p-4 sm:p-5 flex items-center justify-between`;
+
+            document.getElementById('modal-track-icon').textContent = info.icon;
+            document.getElementById('modal-track-tag').textContent = info.tag;
+            document.getElementById('modal-track-title').textContent = info.title;
+            document.getElementById('modal-track-date').textContent = info.dateInfo;
+            document.getElementById('modal-track-partner').textContent = info.partner;
+
+            // Populate Role Badges
+            const rolesContainer = document.getElementById('role-badges-container');
+            rolesContainer.innerHTML = '';
+            const activeRoleBg = trackKey === 'schools' ? 'bg-schoolAcid' : 'bg-orange-300';
+
+            info.roles.forEach((roleText, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `role-badge-btn text-right font-bold text-xs p-2 rounded-xl border-2 border-black transition ${idx === 0 ? activeRoleBg + ' ring-2 ring-black font-black' : 'bg-white hover:bg-zinc-100'}`;
+                btn.textContent = roleText;
+                btn.onclick = (e) => selectVolunteerRole(roleText, btn, activeRoleBg, e);
+                rolesContainer.appendChild(btn);
+            });
+
+            currentSelectedRole = info.roles[0];
+            isPassStamped = true;
+
+            const stampBtn = document.getElementById('stamp-action-btn');
+            stampBtn.textContent = 'تم ختم البطاقة! ✅ (اضغط لتحديث الختم)';
+            stampBtn.className = 'bg-green-600 text-white font-changa font-black text-[11px] px-2.5 py-1 rounded-lg border-2 border-black transition';
+
+            // Update Google Form button
+            const formBtn = document.getElementById('google-form-link-btn');
+            formBtn.className = `w-full brutal-btn ${info.btnBg} font-changa font-black text-lg sm:text-xl py-4 px-6 rounded-2xl brutal-border brutal-shadow flex items-center justify-center gap-3 text-center`;
+
+            const targetUrl = getTargetFormUrl(trackKey);
+            const noteEl = document.getElementById('form-status-note');
+
+            if (targetUrl) {
+                formBtn.href = targetUrl;
+                noteEl.textContent = '🔗 حمّل بطاقتك فوق ثم انتقل لـ Google Form الخاص بهذا المسار.';
+            } else {
+                formBtn.href = '#';
+                noteEl.textContent = '💡 تقدر تحمّل صورة البطاقة دلوقتي لوضعها في الفورم ومشاركتها عالاستوري!';
+            }
+
+            const modal = document.getElementById('redirect-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Render the downloadable Brutalist Pass Canvas
+            renderPassCanvas();
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => renderPassCanvas());
+            }
+        }
+
+        function selectVolunteerRole(roleText, btnEl, activeRoleBg, event) {
+            playSFX('click');
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['⭐', '🔥', '⚡']);
+            document.querySelectorAll('.role-badge-btn').forEach(b => {
+                b.className = 'role-badge-btn text-right font-bold text-xs p-2 rounded-xl border-2 border-black transition bg-white hover:bg-zinc-100';
+            });
+            btnEl.className = `role-badge-btn text-right text-xs p-2 rounded-xl border-2 border-black transition ${activeRoleBg} ring-2 ring-black font-black`;
+            currentSelectedRole = roleText;
+            renderPassCanvas();
+        }
+
+        function stampMissionPass(event) {
+            playSFX('stamp');
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['✅', '🔥', '🚀', '🎉']);
+            isPassStamped = true;
+            renderPassCanvas();
+
+            const wrapper = document.getElementById('pass-canvas-wrapper');
+            if (wrapper) {
+                wrapper.classList.remove('animate-jolt');
+                void wrapper.offsetWidth;
+                wrapper.classList.add('animate-jolt');
+            }
+        }
+
+        // =========================================================================
+        // HTML5 CANVAS GENERATOR FOR BRUTALIST STORY / FORM VIP PASS
+        // =========================================================================
+        function drawRoundRect(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+        }
+
+        function fillBrutalBox(ctx, x, y, w, h, r, fillColor, shadowOffset = 12, shadowColor = '#111111') {
+            if (shadowOffset > 0) {
+                ctx.fillStyle = shadowColor;
+                drawRoundRect(ctx, x + shadowOffset, y + shadowOffset, w, h, r);
+                ctx.fill();
+            }
+            ctx.fillStyle = fillColor;
+            drawRoundRect(ctx, x, y, w, h, r);
+            ctx.fill();
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = '#111111';
+            ctx.stroke();
+        }
+
+        function renderPassCanvas() {
+            const canvas = document.getElementById('vip-pass-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
+            const isSchools = currentSelectedTrack === 'schools';
+
+            // Palette per Track
+            const bgColor = isSchools ? '#ECFCCB' : '#FFEDD5';
+            const primaryAccent = isSchools ? '#A3E635' : '#FB923C';
+            const secondaryAccent = isSchools ? '#15803D' : '#EA580C';
+            const badgeBg = isSchools ? '#DCFCE7' : '#FFF7ED';
+            const nameInput = (document.getElementById('volunteer-name-input')?.value || '').trim();
+
+            // 1. Background Fill
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, W, H);
+
+            // 2. Brutalist Halftone Dot Grid
+            ctx.fillStyle = 'rgba(17, 17, 17, 0.12)';
+            for (let gx = 28; gx < W; gx += 44) {
+                for (let gy = 28; gy < H; gy += 44) {
+                    ctx.beginPath();
+                    ctx.arc(gx, gy, 3.2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // 3. Top Diagonal Stripe Banner
+            ctx.save();
+            ctx.fillStyle = primaryAccent;
+            ctx.fillRect(0, 0, W, 150);
+            ctx.fillStyle = 'rgba(255,255,255,0.32)';
+            for (let sx = -200; sx < W + 200; sx += 48) {
+                ctx.beginPath();
+                ctx.moveTo(sx, 0);
+                ctx.lineTo(sx + 24, 0);
+                ctx.lineTo(sx - 90, 150);
+                ctx.lineTo(sx - 114, 150);
+                ctx.closePath();
+                ctx.fill();
+            }
+            ctx.restore();
+
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = '#111111';
+            ctx.beginPath();
+            ctx.moveTo(0, 150);
+            ctx.lineTo(W, 150);
+            ctx.stroke();
+
+            // 4. Top Identity Badges: FAO × FA MODEL (FAO FIRST)
+            fillBrutalBox(ctx, 60, 32, 240, 86, 22, '#0077B6', 8);
+            ctx.fillStyle = '#FACC15';
+            ctx.font = '900 20px "Space Grotesk", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('UN DAY EVENT', 180, 62);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '900 38px "Space Grotesk", monospace';
+            ctx.fillText('FAO', 180, 102);
+
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 44px "Space Grotesk", monospace';
+            ctx.fillText('×', 340, 92);
+
+            fillBrutalBox(ctx, 380, 32, 310, 86, 22, '#FFFFFF', 8);
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 38px "Changa", "Cairo", sans-serif';
+            ctx.fillText('FA MODEL', 535, 90);
+
+            // Top Right VIP Sticker
+            fillBrutalBox(ctx, 730, 32, 290, 86, 22, '#111111', 8, secondaryAccent);
+            ctx.fillStyle = '#FACC15';
+            ctx.font = '900 28px "Space Grotesk", monospace';
+            ctx.fillText('VIP FIELD PASS', 875, 86);
+
+            // 5. Main Ticket Card Container
+            fillBrutalBox(ctx, 56, 195, W - 112, H - 305, 40, '#FFFFFF', 18, secondaryAccent);
+
+            // Ticket Cutout Notches
+            ctx.fillStyle = bgColor;
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = '#111111';
+            ctx.beginPath();
+            ctx.arc(56, 630, 28, -Math.PI / 2, Math.PI / 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(W - 56, 630, 28, Math.PI / 2, -Math.PI / 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Dashed Divider Line between notches
+            ctx.save();
+            ctx.setLineDash([16, 14]);
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#A1A1AA';
+            ctx.beginPath();
+            ctx.moveTo(95, 630);
+            ctx.lineTo(W - 95, 630);
+            ctx.stroke();
+            ctx.restore();
+
+            // 6. Track Tag Pill & Title inside Card
+            fillBrutalBox(ctx, 110, 240, W - 220, 74, 20, '#111111', 6);
+            ctx.fillStyle = primaryAccent;
+            ctx.font = '900 27px "Space Grotesk", "Cairo", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(
+                isSchools ? 'TRACK 01 // 7 DEC • EARTH GUARDIANS' : 'TRACK 02 // 5 DEC • EGYPTIAN FOOD BANK',
+                W / 2,
+                288
+            );
+
+            // Track Main Arabic Title
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 50px "Changa", "Cairo", sans-serif';
+            ctx.fillText(
+                isSchools ? '🌱 حملة توعية المدارس (مدرستين)' : '🍱 تجهيز وتوزيع بنظام Free Mart',
+                W / 2,
+                390
+            );
+
+            // Subtitle / Partner & Date Pill
+            fillBrutalBox(ctx, 110, 425, W - 220, 82, 22, badgeBg, 6);
+            ctx.fillStyle = '#111111';
+            ctx.font = '800 28px "Cairo", sans-serif';
+            ctx.fillText(
+                isSchools
+                    ? '📅 7 ديسمبر (3 - 4 ساعات) • بالتعاون مع حماة الأرض'
+                    : '📅 5 ديسمبر (3 - 4 ساعات) • للمستحقين أمام مقر بنك الطعام',
+                W / 2,
+                477
+            );
+
+            // Volunteer Name Display (if typed)
+            ctx.fillStyle = '#52525B';
+            ctx.font = '800 25px "Cairo", sans-serif';
+            ctx.fillText(
+                nameInput ? `👤 المتطوع: ${nameInput}` : '👤 متطوع معتمد // FAO × FA MODEL',
+                W / 2,
+                575
+            );
+
+            // 7. Highlighted Volunteer ROLE Box (Lower half of ticket)
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 24px "Space Grotesk", "Cairo", sans-serif';
+            ctx.fillText('SELECTED VOLUNTEER ROLE // اللقب الميداني', W / 2, 700);
+
+            fillBrutalBox(ctx, 105, 730, W - 210, 145, 30, primaryAccent, 12);
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 46px "Changa", "Cairo", sans-serif';
+            ctx.fillText(currentSelectedRole || '🌱 سفير التطوع الميداني', W / 2, 820);
+
+            // Steps / Mission Summary Strip
+            fillBrutalBox(ctx, 105, 915, W - 210, 92, 22, '#F4F4F5', 6);
+            ctx.fillStyle = '#18181B';
+            ctx.font = '800 26px "Cairo", sans-serif';
+            ctx.fillText(
+                isSchools
+                    ? '🎯 المهمة: توعية الأطفال بأهمية الزراعة في مدرستين'
+                    : '🎯 الخطوات: تجهيز • تحضير • توزيع للمستحقين (Free Mart)',
+                W / 2,
+                972
+            );
+
+            // 8. Angled "READY FOR MISSION" Stamp
+            if (isPassStamped) {
+                ctx.save();
+                ctx.translate(250, 1045);
+                ctx.rotate(-0.08);
+                fillBrutalBox(ctx, -155, -38, 360, 72, 18, '#16A34A', 6);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = '900 27px "Space Grotesk", monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText('READY FOR MISSION ✅', 25, 8);
+                ctx.restore();
+            }
+
+            // Pass Serial ID on Bottom Right of Card
+            ctx.fillStyle = '#71717A';
+            ctx.font = '900 22px "Space Grotesk", monospace';
+            ctx.textAlign = 'right';
+            ctx.fillText(`PASS #${isSchools ? 'SCH-0712' : 'EFB-0512'}`, W - 110, 1055);
+
+            // 9. Bottom Footer Strip
+            fillBrutalBox(ctx, 56, H - 82, W - 112, 56, 16, '#FACC15', 6);
+            ctx.fillStyle = '#111111';
+            ctx.font = '900 23px "Cairo", "Space Grotesk", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('FAO × FA MODEL — UN DAY FIELD VOLUNTEERING HUB', W / 2, H - 45);
+
+            // Outer Brutalist Frame Border
+            ctx.lineWidth = 16;
+            ctx.strokeStyle = '#111111';
+            ctx.strokeRect(8, 8, W - 16, H - 16);
+        }
+
+        function downloadPassImage(event) {
+            playSFX('fanfare');
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['📸', '🎉', '🔥', '✅']);
+            renderPassCanvas();
+            const canvas = document.getElementById('vip-pass-canvas');
+            if (!canvas) return;
+
+            const link = document.createElement('a');
+            const trackSlug = currentSelectedTrack === 'schools' ? 'Schools-7Dec' : 'FoodBank-5Dec';
+            link.download = `FAO-x-FAModel-Pass-${trackSlug}.png`;
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            triggerVibeQuote('تم تحميل صورة بطاقتك الميدانية! تقدر ترفعها في الفورم أو تشاركها على الاستوري 📸🔥', currentSelectedTrack, event);
+        }
+
+        async function sharePassToStory(event) {
+            playSFX('fanfare');
+            if (event) spawnEmojiBurst(event.clientX, event.clientY, ['📲', '🌟', '🔥', '🚀']);
+            renderPassCanvas();
+            const canvas = document.getElementById('vip-pass-canvas');
+            if (!canvas) return;
+
+            canvas.toBlob(async (blob) => {
+                if (!blob) return;
+                const file = new File([blob], 'FAO-x-FAModel-Pass.png', { type: 'image/png' });
+
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'FAO × FA Model Volunteering Pass',
+                            text: `جاهز للمهمة الميدانية مع FAO × FA Model بلقب (${currentSelectedRole})! 🚀`
+                        });
+                        return;
+                    } catch (err) {
+                        // User cancelled or share failed, fallback to download
+                    }
+                }
+                // Fallback: Download the image so user can post it to story
+                downloadPassImage(event);
+            }, 'image/png');
+        }
+
+        function getTargetFormUrl(trackKey) {
+            if (trackKey === 'food') {
+                return (FORM_URL_FOOD || FORM_URL_SCHOOLS).trim();
+            }
+            return FORM_URL_SCHOOLS.trim();
+        }
+
+        function handleFormClick(event) {
+            const targetUrl = getTargetFormUrl(currentSelectedTrack);
+            if (!targetUrl) {
+                event.preventDefault();
+                stampMissionPass(event);
+                triggerVibeQuote('تم اعتماد بطاقتك الميدانية! هيتم فتح الفورم أول ما اللينك ينزل مباشرة 🚀', currentSelectedTrack, event);
+            }
+        }
+
+        function closeRedirectModal() {
+            const modal = document.getElementById('redirect-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // =========================================================================
+        // 5-QUESTION QUIZ MODAL LOGIC
+        // =========================================================================
+        function openQuizModal() {
+            quizState = { q1: null, q2: null, q3: null, q4: null, q5: null };
+            document.getElementById('quiz-result-box').classList.add('hidden');
+            const badge = document.getElementById('quiz-progress-badge');
+            if (badge) badge.textContent = '0 / 5 أسئلة مجابة';
+
+            document.querySelectorAll('.quiz-opt').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-black', 'bg-schoolAcid', 'bg-orange-300');
+                btn.classList.add('bg-white');
+            });
+            const modal = document.getElementById('quiz-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQuizModal() {
+            const modal = document.getElementById('quiz-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function pickQuizAnswer(qNum, track, event) {
+            playSFX('click');
+            if (event) {
+                spawnEmojiBurst(event.clientX, event.clientY, track === 'schools' ? ['🌱', '🏫'] : ['🍱', '🛒']);
+            }
+            quizState['q' + qNum] = track;
+
+            const sBtn = document.getElementById(`q${qNum}-schools`);
+            const fBtn = document.getElementById(`q${qNum}-food`);
+            sBtn.classList.remove('ring-4', 'ring-black', 'bg-schoolAcid');
+            fBtn.classList.remove('ring-4', 'ring-black', 'bg-orange-300');
+            sBtn.classList.add('bg-white');
+            fBtn.classList.add('bg-white');
+
+            if (track === 'schools') {
+                sBtn.classList.remove('bg-white');
+                sBtn.classList.add('ring-4', 'ring-black', 'bg-schoolAcid');
+            } else {
+                fBtn.classList.remove('bg-white');
+                fBtn.classList.add('ring-4', 'ring-black', 'bg-orange-300');
+            }
+
+            const answeredCount = Object.values(quizState).filter(Boolean).length;
+            const badge = document.getElementById('quiz-progress-badge');
+            if (badge) badge.textContent = `${answeredCount} / 5 أسئلة مجابة`;
+
+            if (answeredCount === 5) {
+                playSFX('fanfare');
+                const resBox = document.getElementById('quiz-result-box');
+                const resText = document.getElementById('quiz-result-text');
+                const resBtn = document.getElementById('quiz-result-btn');
+                resBox.classList.remove('hidden', 'bg-schoolAcid', 'bg-orange-300');
+
+                const schoolsScore = Object.values(quizState).filter(v => v === 'schools').length;
+                const foodScore = 5 - schoolsScore;
+                const recommended = foodScore > schoolsScore ? 'food' : 'schools';
+                const matchPct = Math.round((Math.max(schoolsScore, foodScore) / 5) * 100);
+
+                if (recommended === 'schools') {
+                    resBox.classList.add('bg-schoolAcid');
+                    resText.innerHTML = `🌱 نسبة توافق <strong>${matchPct}%</strong> مع: <u>مسار توعية المدرستين (يوم 7 ديسمبر - من 3 لـ 4 ساعات)!</u> طاقتك في التواصل مع الأطفال وتبسيط الزراعة هتصنع فرق كبير.`;
+                    resBtn.onclick = () => { closeQuizModal(); selectTrackAndProceed('schools'); };
+                } else {
+                    resBox.classList.add('bg-orange-300');
+                    resText.innerHTML = `🍱 نسبة توافق <strong>${matchPct}%</strong> مع: <u>مسار بنك الطعام بنظام Free Mart (يوم 5 ديسمبر - من 3 لـ 4 ساعات)!</u> حماسك للتجهيز والتحضير والتوزيع للمستحقين أمام مقر بنك الطعام هو اللي محتاجينه.`;
+                    resBtn.onclick = () => { closeQuizModal(); selectTrackAndProceed('food'); };
+                }
+
+                resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // =========================================================================
+        // WHATSAPP POLL VIBE TOAST
+        // =========================================================================
+        let toastTimeout;
+        function triggerVibeQuote(message, mood, event) {
+            playSFX('vote');
+            setVisualMood(mood, event);
+            const toast = document.getElementById('vibe-toast');
+            document.getElementById('vibe-toast-text').textContent = message;
+            toast.classList.remove('hidden');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        }
+
+        function hideVibeToast() {
+            document.getElementById('vibe-toast').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
